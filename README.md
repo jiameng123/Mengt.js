@@ -1,0 +1,2 @@
+# Mengt.js
+# javascript functinal 
