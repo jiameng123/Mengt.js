@@ -1,2 +1,2 @@
 # Mengt.js
-# javascript functinal 
+# javascript functinal libray
