@@ -1,4 +1,4 @@
-import { _partial } from './utils';
+import { _curry3 } from './utils';
 
 /**
  * 数组从又至左累计
@@ -7,7 +7,7 @@ import { _partial } from './utils';
  * @param {array} list 数组
  * @param {any} init 首次执行的初始值
  */
-const reduceRight = _partial(function(fn, list, init) {
+const reduceRight = _curry3(function(fn, list, init) {
     let accumlator, idx;
    
     if(init === undefined) accumlator = list[list.length - 1], idx = list.length - 2;

@@ -38,7 +38,7 @@ export function _checkMethod(methodname,fn) {
         if(len === 0) return fn();
     
         const obj = arguments[len-1];
-
+       
         return (_isArray(obj) || typeof obj[methodname] !== 'function') ? fn.apply(this, arguments) : obj[methodname].apply(obj,  Array.prototype.slice.call(arguments, 0, len - 1))
 
     }
@@ -154,6 +154,42 @@ export function _partial(fn) {
         var args2 = args.concat([].slice.call(arguments));
         return  args2.length < fn.length ?  g : fn.apply(this, args2);
     }
+}
+
+/**
+ * 
+ * @todo 循环遍历数组或者对象
+ * @param callback 一个回调函数，参数为数组的每一项，如果传入的是一个object，则callback
+ * @param obj 遍历的数组项
+ * @returns 返回一个新的数组或者object;
+ */
+
+export function _forEach(callback, obj) {
+
+    if(!_isArray(obj) && !_isObject(obj) ) return obj;
+    
+    if(_isArray(obj)) {
+         _checkMethod('forEach', function forEach(callback, obj) {
+           
+            for(let i = 0; i < obj.length; i++) {
+                callback(obj[i], i);
+            }
+            return obj
+        
+        })(callback, obj)
+    }
+
+    if(_isObject(obj)) { 
+        for(let key in obj) {
+            if(obj.hasOwnProperty(key)) {
+                callback(key, obj[key]);
+            }
+        }
+
+    }
+
+    return obj;
+
 }
 
 

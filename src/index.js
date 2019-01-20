@@ -1,2 +1,23 @@
 import omit from './omit';
-console.log(_isNumber(3333))
+import reduce from './reduce';
+import reduceRight from './reduceRight';
+import compose from './compose';
+import pipe from './pipe';
+import forEach from './forEach';
+import tap from './tap';
+
+var _m = (function () {
+
+    return {
+        omit,
+        reduce,
+        reduceRight,
+        compose,
+        pipe,
+        forEach,
+        tap
+    }
+
+})();
+
+export default _m;

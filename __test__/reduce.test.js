@@ -12,7 +12,7 @@ describe('reduce', function() {
           
 			return cur + next.x
 
-		}, list, )(0)
+		}, list )(0)
 		
 		expect(a).toBe(635);
 	
