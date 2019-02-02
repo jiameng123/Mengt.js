@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/reduce.js</title>
+    <title>Code coverage report for src/omit.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,18 +16,18 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> reduce.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> omit.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">87.5% </span>
+        <span class="strong">90.91% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>7/8</span>
+        <span class='fraction'>10/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/2</span>
+        <span class='fraction'>3/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">85.71% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>6/7</span>
+        <span class='fraction'>10/10</span>
       </div>
     </div>
   </div>
@@ -69,7 +69,16 @@
 24
 25
 26
-27</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -79,49 +88,67 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">23x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry3  } from './utils';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry2 } from './utils';
 &nbsp;
 /**
- * 实现reduece方法
+ * 去除对象中的属性
  * 
- * @param {function}  fn处理list每一项的回调
- * @param {array} list 数组
- * @param {any} init 首次执行的初始值
- * @return 累加值
+ * @param {Array} names 是一个obj中的keys数组
+ * @param {object} obj 将要去除属性的源对象
+ * @returns {object} 去除属性后的一个新的对象
+ * @example 
+ * 
+ *      _M.omit(['a', 'b'], {a:1, b:2,c:3}); // { c:3}
+ *      _M.omit(['a','b'])({a:1, b:2, c:3}) //{c:3}
  */
-const reduce =_curry3(function reduce(fn, list, init) {
-    let acc, index;
-   
-    <span class="missing-if-branch" title="else path not taken" >E</span>if(init !== undefined) acc = init, index = 0;
-    else <span class="cstat-no" title="statement not covered" >acc = list[0], index = 1;</span>
-   
-    while(index &lt; list.length) {
-      
-        acc = fn(acc, list[index]);
-       
-        index++;
+&nbsp;
+const omit = _curry2(function(names, obj) {
+    const result = {};
+    <span class="missing-if-branch" title="if path not taken" >I</span>if(obj == null ) <span class="cstat-no" title="statement not covered" >return result;</span>
+    
+    const help = {};
+    
+    for(let i = 0; i &lt; names.length; i++) {
+        help[names[i]] = i;
     }
 &nbsp;
-    return acc;
-}) 
+    for(var prop in obj ) {
+        if(!help.hasOwnProperty(prop)) {
+            result[prop] = obj[prop];
+        }
+    }
 &nbsp;
-export default reduce;</pre></td></tr>
+    return result;
+});
+&nbsp;
+export default omit;
+&nbsp;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

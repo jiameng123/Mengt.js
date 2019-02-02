@@ -31,7 +31,7 @@ describe(newLocal, function() {
 
 		expect(obj).toEqual( {a:2, b:2});
 	})
-	
+
     it('测试科里化调用forEach', function() {
 		let  sideEffect = 0;
     	forEach((ele) => {
@@ -41,6 +41,12 @@ describe(newLocal, function() {
 		expect(sideEffect).toBe(4);
 	});
 	
-	
+	it('函数调用次数', function() {
+		const callBack = jest.fn();
+		forEach(callBack, [0, 1,2]);
+
+		expect(callBack.mock.calls.length).toBe(3);
+		expect(mockCallback.mock.calls[0][0]).toBe(0);
+	})
 
 })

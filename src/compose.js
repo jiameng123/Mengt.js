@@ -1,28 +1,19 @@
 
-import { _curryN } from './utils';
-import reduceRight from './reduce';
+import { _pipe, _initial, _arity } from './utils'
+import reduceRight from './reduceRight';
+
 /**
- * 函数组合 从右之左调用函数
  * 
+ * @name compose
+ * @todo 函数组合 从右至左调用函数 a => b => c = a(b(c))
  * @public 
  * @param [Function] 调用的函数
  * @example 
- *      compose(f1,f2)(f3)(6)
- *      compose(f1)(f2)(f3)(6)
  *      compose(f1,f2,f3)(6)
  */
-const compose = _curryN( function compose(...fns) {
-    return function(...args) {
+const compose = function() {
+    const fns = [].slice.call(arguments);
+    return _arity(fns.length, reduceRight(_pipe, _initial(fns),  fns[fns.length-1]))
+}
 
-      return reduceRight(function(f1, f2) {
-          console.log(f1, f2)
-        return f2.call(this, f1)
-      }, fns, args)
-
-      /*  return fns.reverse().reduce((f1, f2) => {
-            return  f2.call(this, f1)
-        }, args) */
-    }
-})
-
-export default  compose;
+export default compose;

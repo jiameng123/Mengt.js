@@ -9,19 +9,19 @@ import { _curry3  } from './utils';
  * @return 累加值
  */
 const reduce =_curry3(function reduce(fn, list, init) {
-    let accumlator, index;
+    let acc, index;
    
-    if(init !== undefined) accumlator = init, index = 0;
-    else accumlator = list[0], index = 1;
+    if(init !== undefined) acc = init, index = 0;
+    else acc = list[0], index = 1;
    
     while(index < list.length) {
       
-        accumlator = fn(accumlator, list[index]);
+        acc = fn(acc, list[index]);
        
         index++;
     }
 
-    return accumlator;
+    return acc;
 }) 
 
 export default reduce;

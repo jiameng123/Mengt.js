@@ -8,17 +8,17 @@ import { _curry3 } from './utils';
  * @param {any} init 首次执行的初始值
  */
 const reduceRight = _curry3(function(fn, list, init) {
-    let accumlator, idx;
+    let acc, idx;
    
-    if(init === undefined) accumlator = list[list.length - 1], idx = list.length - 2;
-    else accumlator = init, idx = list.length - 1;
+    if(init === undefined) acc = list[list.length - 1], idx = list.length - 2;
+    else acc = init, idx = list.length - 1;
 
     while(idx > -1) {
-        accumlator = fn(accumlator, list[idx]);
+        acc = fn(acc, list[idx]);
         idx --;
     }
 
-    return accumlator;
+    return acc;
 })
 
 export default reduceRight;

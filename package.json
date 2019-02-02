@@ -10,7 +10,8 @@
     "dev": "rollup -c -w",
     "pretest": "npm run build",
     "test": "jest",
-    "test:c": "jest --coverage"
+    "test:c": "jest --coverage",
+    "debugger": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --no-watchman"
   },
   "keywords": [
     "es2015",

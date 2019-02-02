@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/forEach.js</title>
+    <title>Code coverage report for src/pipe.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> forEach.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> pipe.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/0</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>3/3</span>
       </div>
     </div>
   </div>
@@ -56,7 +56,15 @@
 11
 12
 13
-14</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+14
+15
+16
+17
+18</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -65,24 +73,28 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry2 , _forEach } from './utils';
-&nbsp;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {  _pipe, _arity, _tail } from './utils';
+import reduce from './reduce';
 /**
+ * 管道方法 从左到右执行函数
  * 
- * @param callback 一个回调函数，参数为数组的每一项
- * @param arr 遍历的数组项
+ * @public
+ * @param [function] f1,f2,..
+ * @example 
+ * 		pipe(f1, f2, f3)({x:1,y:2})
+ * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)
  */
 &nbsp;
- const forEach = _curry2(_forEach);
-&nbsp;
-export default forEach;
-&nbsp;
-&nbsp;
-&nbsp;</pre></td></tr>
+const pipe  = function () {
+    var fns = [].slice.call(arguments);
+    return _arity(fns.length, reduce(_pipe, _tail(fns), fns[0]));
+   
+}
+export default pipe;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->
