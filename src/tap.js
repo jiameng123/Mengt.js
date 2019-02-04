@@ -8,7 +8,9 @@
  *      compose(f1,f2,tap, f3)(5)
  *      //console.log(f3(5))
  */
-export default function tap(value) {
-    console.log(value);
-    return value;
+export default function tap(fn) {
+   return function(val) {
+       fn(val);
+       return val;
+   }
 }

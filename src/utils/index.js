@@ -123,6 +123,7 @@ export function _curry3(fn) {
  * @private
  * @param {Function} 将fn转化成柯里化 
  */
+
 export function _curryN(fn) {
     if(!_isFunction(fn)) {
         throw Error(fn+ ' is not a function!');
@@ -235,6 +236,12 @@ export function _arity (n, fn) {
 }
 
 
+/**
+ * 
+ * @private
+ * @todo 返回除第一项的其他元素的数组
+ * @param {arrlike} arr 
+ */
 export function _tail(arr) {
     return arr.slice(1)
 }
@@ -244,7 +251,6 @@ export function _tail(arr) {
  * @private
  * @todo 获取数组array中除了最后一个元素之外的所有元素
  * @param {ArrayLike} arrlike  
- * @param {number} n 
  */
 export function _initial(arr) {
     return _checkMethod('slice', function(n) {
@@ -256,7 +262,7 @@ export function _initial(arr) {
         return result;
     
     })(-2)
-    
+
 }
 
 /* export function _indexOf(list, val, fromIndex) {
