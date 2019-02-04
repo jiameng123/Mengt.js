@@ -5,7 +5,7 @@ describe('测试 compose', function() {
     it('compose test', function() {
         const a = x => x+2;
         const b = y => y+5;
-        debugger;
+       
         const c = compose(a, b);
         
         expect(c(1)).toBe(8)

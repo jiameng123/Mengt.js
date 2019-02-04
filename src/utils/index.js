@@ -200,7 +200,7 @@ export function _forEach(callback, obj) {
  * @param {Function} f 
  * @param {Function} g 
  */
-export function _pipe(f, g ) {
+export function _pipe(f, g) {
     return function() {
         return g.call(this, f.apply(this, Array.prototype.slice.call(arguments)))
     }
