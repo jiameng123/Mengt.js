@@ -6,7 +6,7 @@ import pipe from './pipe';
 import forEach from './forEach';
 import tap from './tap';
 
-var _m = (function () {
+var M = (function () {
 
     return {
         omit,
@@ -20,4 +20,4 @@ var _m = (function () {
 
 })();
 
-export default _m;
+export default M;

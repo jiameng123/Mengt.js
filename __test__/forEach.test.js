@@ -1,4 +1,4 @@
-import   forEach  from "../src/forEach";
+import  forEach  from "../src/forEach";
 
 const newLocal = 'forEach test';
 describe(newLocal, function() {
