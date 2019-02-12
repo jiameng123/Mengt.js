@@ -1,16 +1,19 @@
+import { _curry2 } from './utils';
 /**
  * 在链式调用或者compose | pipe 函数中调试
  * 
- * @public
- * @param [any] value 
- * @returns value 
+ * @todo 使用提供的参数运行给定的函数，总是返回该参数 
+ * @param {Function}  使用参数val调用fn,返回值将被丢弃
+ * @param {*} val
+ * @returns {*} val 
  * @example 
- *      compose(f1,f2,tap, f3)(5)
- *      //console.log(f3(5))
+ *     const consoleX = x => console.log(x);
+ *      tap(consoleX, 'aa') //=> aa
+ *      
  */
-export default function tap(fn) {
-   return function(val) {
-       fn(val);
-       return val;
-   }
-}
+var tap = _curry2(function(fn, val) {
+    fn(val);
+    return val;
+});
+
+export default tap;
