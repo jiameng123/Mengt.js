@@ -32,7 +32,6 @@ describe('test block for curry', function() {
     it('经过curry转化后的函数参数个数', function() {
         const f = curry(mockFn);
         expect(f.length).toBe(4);
-        debugger;
         const g = f(12);
        
         expect(g.length).toBe(3);

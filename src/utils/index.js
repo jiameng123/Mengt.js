@@ -257,15 +257,15 @@ export function _tail(arr) {
  * @param {ArrayLike} arrlike  
  */
 export function _initial(arr) {
-    return _checkMethod('slice', function(n) {
-        let idx = arr.length + n, result = [];
-        while(idx > -1) {
-            result.unshift(arr[idx])
-            idx --;
+    return _checkMethod('slice', function() {
+      
+        let idx = 0, result = [];
+        while(idx < arr.length-1) {
+            result.push(arr[idx])
+            idx++;
         }
         return result;
-    
-    })(-2)
+    })()
 
 }
 
