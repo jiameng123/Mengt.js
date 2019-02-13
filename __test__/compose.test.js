@@ -12,11 +12,11 @@ describe('测试 compose', function() {
 
     it('compose test2', function() {
         const a = x => x-2;
-        const b = y => y + 10;
+        const b = y => y - 10;
         const c = (x, y) => x - y;
 
         const result = compose(a, b, c);
-        expect(result(1, -9)).toBe(18)
+        expect(result(1, -9)).toBe(-2)
         
     })
 

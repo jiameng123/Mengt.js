@@ -265,8 +265,7 @@ export function _initial(arr) {
             idx++;
         }
         return result;
-    })()
-
+    })();
 }
 
 /* export function _indexOf(list, val, fromIndex) {
