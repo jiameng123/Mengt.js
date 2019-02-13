@@ -21,6 +21,10 @@ export function _isRegExp(x) {
     return Object.prototype.toString.call(x) === '[object RegExp]';
 }
 
+export function _isString(x) {
+    return Object.prototype.toString.call(x) === '[object String]';
+}
+
 
 /**
  * 
