@@ -1,11 +1,14 @@
 import { _curry3 } from './utils';
-
+import reverse from './revers';
 /**
- * 数组从又至左累计
  * 
- * @param {function}  fn处理list每一项的回调
- * @param {array} list 数组
- * @param {any} init 首次执行的初始值
+ * 对列表中每一个元素执行提供的函数（从右至左迭代），将其结果汇总为单个返回值。
+ * @see reduce
+ * @func
+ * @param {Function}  fn处理list每一项的回调
+ * @param {Array} list 数组
+ * @param {*} init 首次执行的初始值
+ * @returns {*} 累加值
  */
 const reduceRight = _curry3(function(fn, list, init) {
     let acc, idx;

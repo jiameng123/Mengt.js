@@ -1,7 +1,8 @@
 import { _curry3, _checkMethod } from './utils';
 /**
  * 
- * @todo 返回给定列表或字符串的元素，从from开始到to-1;如果传入的对象有slice方法，则直接调用该方法
+ * 返回给定列表或字符串的元素，从from开始到to-1;如果传入的对象有slice方法，则直接调用该方法
+ * @func
  * @param {Number} from 起始位置
  * @param {Number} to 结束位置
  * @param {Array | string}} list 列表或字符串

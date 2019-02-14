@@ -4,10 +4,10 @@ import reduceRight from './reduceRight';
 
 /**
  * 
- * @name compose
- * @todo 函数组合 从右至左调用函数 a => b => c = a(b(c))
- * @public 
+ * 函数组合从右至左调用函数 a => b => c = a(b(c)) 
+ * @func
  * @param [Function] 调用的函数
+ * @returns {*} 
  * @example 
  *      compose(f1,f2,f3)(6)
  */

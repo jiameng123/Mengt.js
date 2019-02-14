@@ -1,12 +1,14 @@
 import { _curry3  } from './utils';
 
 /**
- * 实现reduece方法
  * 
- * @param {function}  fn处理list每一项的回调
- * @param {array} list 数组
- * @param {any} init 首次执行的初始值
- * @return 累加值
+ * 对列表中每一个元素执行提供的函数，将其结果汇总为单个返回值。
+ * @see reduceRight
+ * @func
+ * @param {Function}  fn处理list每一项的回调
+ * @param {list} list 
+ * @param {*} init 首次执行的初始值
+ * @return {*} 累加值
  */
 const reduce =_curry3(function reduce(fn, list, init) {
     let acc, index;
@@ -15,9 +17,7 @@ const reduce =_curry3(function reduce(fn, list, init) {
     else acc = list[0], index = 1;
    
     while(index < list.length) {
-      
         acc = fn(acc, list[index]);
-       
         index++;
     }
 

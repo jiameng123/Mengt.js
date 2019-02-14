@@ -3,8 +3,8 @@ import slice from './slice';
 
 /**
  *
- * @name tail 
- * @todo 删除列表中的首个元素
+ * 删除列表中的首个元素
+ * @func tail
  * @param {*} list 
  * @returns {*}
  * @example

@@ -2,7 +2,7 @@ import { _curry2 } from './utils';
 
 /**
  * 
- * @todo 根据传入的比较器函数进行列表排序
+ * 根据传入的比较器函数进行列表排序
  * @param {Function} comparator 排序函数
  * @param {Array} list 待排序的列表
  * @return {Array} 排序后的新的列表

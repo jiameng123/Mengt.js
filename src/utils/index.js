@@ -2,7 +2,7 @@
 //内部工具方法
 
 export function _isFunction (x) {
-    return Object.prototype.toString.call(x) === '[object Function]'
+    return ~Object.prototype.toString.call(x).slice(8).indexOf('Function');
 }
 
 export  function _isArray (x) {
@@ -163,7 +163,7 @@ export function _partial(fn) {
 
 /**
  * 
- * @todo 循环遍历数组或者对象
+ * @todo 需要增加字符串forEach
  * @param callback 一个回调函数，参数为数组的每一项，如果传入的是一个object，则callback
  * @param obj 遍历的数组项
  * @returns 返回一个新的数组或者object;
@@ -247,7 +247,7 @@ export function _arity (n, fn) {
  * @param {arrlike} arr 
  */
 export function _tail(arr) {
-    return arr.slice(1)
+    return Array.prototype.slice.call(arr, 1);
 }
 
 /**

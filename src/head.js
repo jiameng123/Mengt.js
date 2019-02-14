@@ -2,9 +2,8 @@ import { _curry1, _isString } from './utils';
 import slice from './slice';
 
 /**
- * 
- * @name head
- * @todo 求列表或字符串的首个元素
+ * 求列表或字符串的首个元素
+ * @func head 
  * @param {*} list 数组或者字符串
  * @return {*} 
  * @example 

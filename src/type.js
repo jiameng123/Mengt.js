@@ -2,7 +2,10 @@ import { _curry1 } from './utils';
 
 /**
  * 
- * @todo 检测数据类型
+ * 检测数据类型
+ * @func
+ * @param {*} x
+ * @returns {String}
  * @example 
  *     type({}) //=> 'Object'
  *     type(1) //=> 'Number'

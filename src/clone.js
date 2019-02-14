@@ -4,7 +4,7 @@ import forEach from './forEach';
 
 /**
  * 
- * @todo 潜复制一个对象或者数组，不会复制原型链上的属性,
+ * 潜复制一个对象或者数组，不会复制原型链上的属性,
  * @param {object} obj 
  * @returns object 
  */

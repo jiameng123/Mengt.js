@@ -3,8 +3,10 @@ import { _curry1, _isFunction } from './utils';
 
 /**
  * 
- * @name curry
- * @todo 柯里化未知参数个数的函数
+ * 柯里化未知参数个数的函数
+ * @func curry
+ * @returns {Function} 
+ * 
  */
 var curry =  _curry1(function curry (fn) {
     if(!_isFunction(fn)) {

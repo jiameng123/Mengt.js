@@ -19,5 +19,7 @@ export { default as identity } from './identity';
 export { default as slice } from './slice';
 export { default as sort } from './sort';
 export { default as sortBy } from './sortBy';
+export { default as T } from './T';
+export { default as F } from './F';
 
 
