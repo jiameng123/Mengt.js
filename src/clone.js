@@ -8,7 +8,7 @@ import forEach from './forEach';
  * @param {object} obj 
  * @returns object 
  */
-export function _clone(obj) {
+export default function _clone(obj) {
     if(obj == null) return {};
     if(_isArray(obj)) {
         return _checkMethod('concat', function() {

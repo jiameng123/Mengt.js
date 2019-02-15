@@ -46,7 +46,7 @@ describe(newLocal, function() {
 		forEach(callBack, [0, 1,2]);
 
 		expect(callBack.mock.calls.length).toBe(3);
-		expect(mockCallback.mock.calls[0][0]).toBe(0);
+		expect(callBack.mock.calls[0][0]).toBe(0);
 	})
 
 })

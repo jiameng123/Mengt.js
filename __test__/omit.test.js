@@ -1,4 +1,4 @@
-import M from '../src/index';
+var M = require('../src');
 
 describe('omit test block', function( ) {
     it('test omit', function() {
