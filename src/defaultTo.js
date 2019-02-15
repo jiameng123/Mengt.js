@@ -9,7 +9,7 @@ import { _curry2 } from './utils'
  * @returns {*}
  * @example 
  *  defaultTo(1, null) //=> 1
- *  defaultTo(1,'') //> ''
+ *  defaultTo(1, '') //=> ''
  */
 var defaultTo =  _curry2(function(def, val) {
     return val == null || val !== val ? def: val;
