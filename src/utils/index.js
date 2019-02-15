@@ -1,6 +1,7 @@
 
-//内部工具方法
+import type from '../type';
 
+//内部工具方法
 export function _isFunction (x) {
     return ~Object.prototype.toString.call(x).slice(8).indexOf('Function');
 }
@@ -44,7 +45,6 @@ export function _checkMethod(methodname,fn) {
         const obj = arguments[len-1];
        
         return (_isArray(obj) || typeof obj[methodname] !== 'function') ? fn.apply(this, arguments) : obj[methodname].apply(obj,  Array.prototype.slice.call(arguments, 0, len - 1))
-
     }
 }
 
@@ -165,35 +165,35 @@ export function _partial(fn) {
  * 
  * @todo 需要增加字符串forEach
  * @param callback 一个回调函数，参数为数组的每一项，如果传入的是一个object，则callback
- * @param obj 遍历的数组项
+ * @param {list} list 遍历的数组项
  * @returns 返回一个新的数组或者object;
  */
 
-export function _forEach(callback, obj) {
+export function _forEach(callback, list) {
 
-    if(!_isArray(obj) && !_isObject(obj) ) return obj;
+    if(!_isArray(list) && !_isObject(list) ) return list;
     
-    if(_isArray(obj)) {
-         _checkMethod('forEach', function forEach(callback, obj) {
+    if(_isArray(list)) {
+         _checkMethod('forEach', function forEach(callback, list) {
            
-            for(let i = 0; i < obj.length; i++) {
-                callback(obj[i], i);
+            for(let i = 0; i < list.length; i++) {
+                callback(list[i], i);
             }
-            return obj
+            return list
         
-        })(callback, obj)
+        })(callback, list)
     }
 
-    if(_isObject(obj)) { 
-        for(let key in obj) {
-            if(obj.hasOwnProperty(key)) {
-                callback(key, obj[key]);
+    if(_isObject(list)) { 
+        for(let key in list) {
+            if(Object.prototype.hasOwnProperty.call(list, key)) {
+                callback(key, list[key]);
             }
         }
 
     }
 
-    return obj;
+    return list;
 
 }
 
@@ -266,6 +266,50 @@ export function _initial(arr) {
         }
         return result;
     })();
+}
+
+
+/**
+ *
+ * polyfill Obeject.is
+ * @func
+ * @param {*} a
+ * @param {*} b
+ * @returns {Boolean}
+ */
+export  function _ObjectIs(a, b) {
+    if(!_isFunction(Object.is)) {
+        function  _objIs(a, b) {
+            if(a === b) {
+                return a !== 0 || 1 / a === 1 / y
+            } else {
+                return x !== x && y !== y;
+            }
+        }
+        return _objIs(a, b);
+    } else {
+        return Object.is(a, b)
+    }
+}
+/**
+ *
+ * 比较两个值是否相等
+ * @func
+ * @param {*} a
+ * @param {*} b
+ */
+export function _isEqual(a, b) {
+    if(_ObjectIs(a, b)) {
+        return true;
+    }
+
+    if(a == null || b == null) return false;
+    
+    //比较传入的类型是否相等
+    var typeA = type(a), typeB = type(b);
+    if(typeA  !== typeB) return false;
+
+
 }
 
 /* export function _indexOf(list, val, fromIndex) {

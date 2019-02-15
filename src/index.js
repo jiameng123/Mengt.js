@@ -7,6 +7,7 @@ export { default as compose } from './compose';
 export { default as defaultTo } from './defaultTo';
 export { default as divide } from './divide';
 export { default as head } from './head';
+export { default as keys } from './keys';
 export { default as multiply } from './multiply';
 export { default as omit } from './omit';
 export { default as once } from './once';

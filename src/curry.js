@@ -5,6 +5,7 @@ import { _curry1, _isFunction } from './utils';
  * 
  * 柯里化未知参数个数的函数
  * @func curry
+ * @category Function
  * @returns {Function} 
  * 
  */
