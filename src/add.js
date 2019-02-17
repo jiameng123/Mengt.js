@@ -1,16 +1,20 @@
 import _curry2  from './utils/_curry2';
+
 /**
  * 两个值相加
  * @func add
- * @category Math
+ * @kind M
+ * @inner
+ * @member {Math}
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}
- * @see subtract
+ * @tutorial subtract
  * @example 
- *  add(1,2) //=>3
- *  add('1', '2') //=>3
- *  add(1)(2) //=>3
+ * 
+ *      M.add(1,2) //=>3
+ *      M.add('1', '2') //=>3
+ *      M.add(1)(2) //=>3
  */
 var add = _curry2(function(a , b) {
     return Number(a) + Number(b);

@@ -3,11 +3,11 @@ import _curry2 from './utils/_curry2';
 /**
  * 去除对象中的属性
  * @fun
- * @category Object
+ * @member {Object}
  * @param {Array} names 是一个obj中的keys数组
  * @param {object} obj 将要去除属性的源对象
  * @returns {object} 去除属性后的一个新的对象
- * @see pick
+ * @tutorial pick
  * @example 
  * 
  *      _M.omit(['a', 'b'], {a:1, b:2,c:3}); // { c:3}

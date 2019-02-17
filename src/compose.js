@@ -7,11 +7,12 @@ import reduceRight from './reduceRight';
  * 
  * 函数组合从右至左调用函数 a => b => c = a(b(c)) 
  * @func
- * @category Function
+ * @member {Function}
  * @param [Function] 调用的函数
  * @returns {*} 
- * @see pipe
+ * @tutorial pipe
  * @example 
+ * 
  *      compose(f1,f2,f3)(6)
  */
 const compose = function() {
