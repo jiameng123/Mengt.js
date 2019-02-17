@@ -96,6 +96,7 @@
 
 ## clone ⇒ <code>object</code>
 
+
 深拷贝一个对象，不会复制原型链上的属性
 
 **Kind**: global variable  
