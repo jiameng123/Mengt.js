@@ -96,7 +96,7 @@
 
 ## clone ⇒ <code>object</code>
 
-潜复制一个对象或者数组，不会复制原型链上的属性,
+深拷贝一个对象或者数组，不会复制原型链上的属性,
 
 **Kind**: global variable  
 **Returns**: <code>object</code> - 一个新的对象
