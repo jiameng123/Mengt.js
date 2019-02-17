@@ -5,14 +5,16 @@ import slice from './slice';
 /**
  * 求列表或字符串的首个元素
  * @func head 
+ * @memberOf M
  * @lends List
  * @param {*} list 数组或者字符串
  * @return {*} 
  * @example 
- *  head(['a', 'b', 'c']) //=> 'a';
- *  head([]) //=> 'undefined';
- *  head('abc') //=> 'a';
- *  head('') //=> ''
+ * 
+ *      head(['a', 'b', 'c']) //=> 'a';
+ *      head([]) //=> 'undefined';
+ *      head('abc') //=> 'a';
+ *      head('') //=> ''
  */
 var head = _curry1(function head(list) {
     var result =  slice(0, 1, list);

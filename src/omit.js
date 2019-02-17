@@ -3,6 +3,7 @@ import _curry2 from './utils/_curry2';
 /**
  * 去除对象中的属性
  * @fun
+ * @memberOf M
  * @lends Object
  * @param {Array} names 是一个obj中的keys数组
  * @param {object} obj 将要去除属性的源对象

@@ -6,6 +6,7 @@ import _isFunction  from './utils/_isFunction';
  * 
  * 柯里化未知参数个数的函数
  * @func curry
+ * @memberOf M
  * @lends Function
  * @returns {Function} 
  * 

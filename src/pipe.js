@@ -5,12 +5,15 @@ import reduce from './reduce';
 /**
  * 管道方法 从左到右执行函数
  * @func
- * @param [function] f1,f2,..
+ * @memberOf M
+ * @lends Function
+ * @param {...Function} functions
  * @returns {*}
  * @see compose
  * @example 
- * 		pipe(f1, f2, f3)({x:1,y:2})
- * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)
+ * 
+ * 	    pipe(f1, f2, f3)({x:1,y:2});
+ * 	    pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10);
  */
 
 const pipe  = function () {

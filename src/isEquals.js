@@ -3,11 +3,13 @@ import _isEquals from './utils/_isEquals';
 /**
  * 如果传入的参数相等，返回true，否则返回false
  * @func
+ * @memberOf M
  * @lends Relation
  * @param {*} a 
  * @param {*} b
  * @return {Boolean}
- * @example 
+ * @example
+ *  
  *      isEquals(1, 1); //=> true
  *      isEquals(1, '1'); //=> false
  *      isEquals([1, 2, 3], [1, 2, 3]); //=> true

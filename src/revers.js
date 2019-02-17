@@ -4,13 +4,16 @@ import _checkMethod from './utils/_checkMethod';
 /**
  * 以相反的顺序返回包含元素或字符新列表或字符串
  * @func
+ * @memberOf M
+ * @lends List
  * @param {list} list
  * @returns {list} 
  * @example
- *  reverse([1, 2]); //=> [2,1];
- *  reverse([]); //=> []
- *  reverse('abc'); //=> 'cba'
- *  reverse(''); //=> ''
+ * 
+ *      everse([1, 2]); //=> [2,1];
+ *      reverse([]); //=> []
+ *      reverse('abc'); //=> 'cba'
+ *      reverse(''); //=> ''
  */
 const reverse = _checkMethod('reverse', function(list) {
     let idx = list.length - 1;

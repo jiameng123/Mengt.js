@@ -1,17 +1,18 @@
 import _curry2  from './utils/_curry2';
 
 /**
- * 
  * 两个数相除 a / b
  * @func
+ * @memberOf M
  * @lends Math
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}
  * @see multiply
  * @example
- *  divide(10, 100) //=> 0.1
- *  divide(10)(100) //=> 0.1
+ * 
+ *      ivide(10, 100) //=> 0.1
+ *      divide(10)(100) //=> 0.1
  */
 var divide = _curry2(function divide(a, b) {
     return a / b
