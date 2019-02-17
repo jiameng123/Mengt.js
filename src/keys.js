@@ -1,5 +1,5 @@
-import { _curry1, _isFunction } from './utils';
-
+import _curry1 from './utils/_curry1';
+import _isFunction from './utils/_isFunction';
 /**
  * 
  * 返回一个组数，包含输入对象所有的key的数组，顺序可能不一致，不会提取原型上的key

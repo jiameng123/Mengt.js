@@ -123,7 +123,7 @@ describe('isEquals test block', function () {
 
    });
 
-   it('通过set方法递归调用isEquals', function() {
+   it('Map通过set方法递归调用isEquals', function() {
         var a = new Map();
         var b = new Map();
         a.set(a, a);
@@ -132,6 +132,93 @@ describe('isEquals test block', function () {
         b.set(b, b);
         b.set(a, a);
         expect(M.isEquals(a, b)).toBeTruthy();
-   })
+   });
 
+   it('按值比较Set对象', function() {
+     expect(M.isEquals(new Set([]), new Set([]))).toBeTruthy();
+     expect(M.isEquals(new Set([]), new Set([1]))).toBeFalsy();
+     expect(M.isEquals(new Set([1]), new Set([]))).toBeFalsy();
+     expect(M.isEquals(new Set([1, 2]), new Set([2, 1]))).toBeTruthy();
+     expect(M.isEquals(new Set([1, new Set([2, new Set([3])])]), new Set([1, new Set([2, new Set([3])])]))).toBeTruthy();
+     expect(M.isEquals(new Set([1, new Set([2, new Set([3])])]), new Set([1, new Set([2, new Set([4])])]))).toBeFalsy();
+     expect(M.isEquals(new Set([[1, 2, 3], [4, 5, 6]]), new Set([[1, 2, 3], [4, 5, 6]]))).toBeTruthy();
+     expect(M.isEquals(new Set([[1, 2, 3], [4, 5, 6]]), new Set([[1, 2, 3], [7, 8, 9]]))).toBeFalsy();
+   });
+
+   it('Sey通过add方法递归调用isEquals', function() {
+        var a = new Set();
+        var b = new Set();
+        a.add(a, a);
+        expect(M.isEquals(a, b)).toBeFalsy();
+        a.add(b, b);
+        b.add(b, b);
+        b.add(a, a);
+        expect(M.isEquals(a, b)).toBeTruthy();
+    });
+
+    it('按引用比较WeakMap', function() {
+        var m = new WeakMap([]);
+        expect(M.isEquals(m, m)).toBeTruthy();
+        expect(M.isEquals(m, new WeakMap([]))).toBeTruthy();
+        expect(M.isEquals(m, new Map([]))).toBeFalsy();
+      });
+
+
+    it('按引用比较WeakSet', function() {
+        var m = new WeakSet([]);
+        expect(M.isEquals(m, m)).toBeTruthy();
+        expect(M.isEquals(m, new WeakSet([]))).toBeTruthy();
+        expect(M.isEquals(m, new Map([]))).toBeFalsy();
+      });
+
+    it('递归调用isEquals', function() {
+        function Left(x) { this.value = x; }
+        Left.prototype.isEquals = function(x) {
+          return x instanceof Left && M.isEquals(x.value, this.value);
+        };
+    
+        function Right(x) { this.value = x; }
+        Right.prototype.isEquals = function(x) {
+          return x instanceof Right && M.isEquals(x.value, this.value);
+        };
+        expect(M.isEquals(new Left([42]), new Left([42]))).toBeTruthy();
+        expect(M.isEquals(new Left([42]), new Left([43]))).toBeFalsy(); 
+        expect(M.isEquals(new Left(42), {value: 42})).toBeFalsy();
+        expect(M.isEquals({value: 42}, new Left(42))).toBeFalsy();
+        expect(M.isEquals(new Left(42), new Right(42))).toBeFalsy();
+        expect(M.isEquals(new Right(42), new Left(42))).toBeFalsy();
+    
+        expect(M.isEquals([new Left(42)], [new Left(42)])).toBeTruthy();
+        expect(M.isEquals([new Left(42)], [new Right(42)])).toBeFalsy();
+        expect(M.isEquals([new Right(42)], [new Left(42)])).toBeFalsy();
+        expect(M.isEquals([new Right(42)], [new Right(42)])).toBeTruthy();
+    });
+
+    it('isEquals方式是可替换的' ,function () {
+       
+        function Point(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+        Point.prototype.isEquals = function (point) {
+            return point instanceof Point &&
+                this.x === point.x && this.y === point.y;
+        };
+
+        function ColorPoint(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.color = color;
+        }
+        ColorPoint.prototype = new Point(0, 0);
+        ColorPoint.prototype.isEquals = function (point) {
+            return point instanceof ColorPoint &&
+                this.x === point.x && this.y === point.y &&
+                this.color === point.color;
+        };
+        expect(M.isEquals(new Point(2, 2), new Point(2, 2))).toBeTruthy();
+        expect(M.isEquals(new Point(2, 2), new ColorPoint(2, 2, 'red'))).toBeFalsy();
+        expect(M.isEquals(new ColorPoint(2, 2, 'red'), new Point(2, 2))).toBeFalsy();
+        
+    })
 });

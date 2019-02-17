@@ -1,4 +1,5 @@
-import { _curry1, _isString } from './utils';
+import _isString  from './utils/_isString';
+import _curry1  from './utils/_curry1';
 import slice from './slice';
 
 /**

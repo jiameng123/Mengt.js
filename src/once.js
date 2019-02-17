@@ -1,5 +1,5 @@
-import { _curry1, _arity } from './utils';
-
+import _curry1 from './utils/_curry1';
+import _arity from './utils/_arity';
 /**
  * 
  * 接受一个函数，返回一个包装函数，使得接受的函数无论调用多少次，只返回第一次调用的结果

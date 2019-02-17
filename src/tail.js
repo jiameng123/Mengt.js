@@ -1,4 +1,4 @@
-import { _curry1 } from './utils';
+import _curry1 from './utils/_curry1';
 import slice from './slice';
 
 /**

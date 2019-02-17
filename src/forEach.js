@@ -1,5 +1,5 @@
-import { _curry2 , _checkMethod } from './utils';
-import has from './has';
+import _curry2  from './utils/_curry2';
+import _checkMethod  from './utils/_checkMethod';
 
 /**
  * 循坏遍历数组或类数组对象

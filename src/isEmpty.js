@@ -1,4 +1,6 @@
-import { _curry1 ,  _isNumber, _isObject} from './utils';
+import _curry1 from './utils/_curry1';
+import _isNumber from './utils/_isNumber';
+import _isObject from './utils/_isObject';
 import has from './has';
 
 /**

@@ -1,4 +1,4 @@
-import { _curry2 } from './utils';
+import _curry2 from './utils/_curry2';
 
 /**
  * 
@@ -6,6 +6,7 @@ import { _curry2 } from './utils';
  * @param {Function} comparator 排序函数
  * @param {Array} list 待排序的列表
  * @return {Array} 排序后的新的列表
+ * @see sortBy
  * @example 
  *  const diff = (a, b) => a - b;
  *  sort(diff, [1,0, 4, 3, 2]) //=> [0, 1, 2, 3, 4]

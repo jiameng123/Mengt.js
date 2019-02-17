@@ -1,4 +1,4 @@
-import { _curry2, _isObject } from './utils';
+import _curry2  from './utils/_curry2';
 
 /**
  * 

@@ -1,10 +1,13 @@
-import {  _pipe, _arity, _tail } from './utils';
+import _pipe from './utils/_pipe';
+import _arity from './utils/_arity';
+import _tail from './utils/_tail';
 import reduce from './reduce';
 /**
  * 管道方法 从左到右执行函数
- * @see compose
  * @func
  * @param [function] f1,f2,..
+ * @returns {*}
+ * @see compose
  * @example 
  * 		pipe(f1, f2, f3)({x:1,y:2})
  * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)

@@ -1,5 +1,6 @@
 import curryN from './curryN';
-import { _curry1, _isFunction } from './utils';
+import _curry1  from './utils/_curry1';
+import _isFunction  from './utils/_isFunction';
 
 /**
  * 

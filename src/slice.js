@@ -1,4 +1,5 @@
-import { _curry3, _checkMethod } from './utils';
+import _checkMethod from './utils/_checkMethod';
+import _curry3 from './utils/_curry3';
 /**
  * 
  * 返回给定列表或字符串的元素，从from开始到to-1;如果传入的对象有slice方法，则直接调用该方法

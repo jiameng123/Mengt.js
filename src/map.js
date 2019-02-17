@@ -1,4 +1,6 @@
-import { _map, _curry2, _checkMethod } from './utils';
+import _map from './utils/_map';
+import _curry2 from './utils/_curry2';
+import _checkMethod from './utils/_checkMethod';
 import  curryN  from './curryN';
 import type from './type';
 import reuduce from './reduce';
