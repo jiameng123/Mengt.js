@@ -10,7 +10,7 @@
 <dt><a href="#curryN">curryN</a> ⇒ <code>function</code></dt>
 <dd><p>对函数进行柯里化，并限制柯里化函数的元数</p>
 </dd>
-<dt><a href="#logic">logic</a> ⇒ <code>*</code></dt>
+<dt><a href="#defaultTo">defaultTo</a> ⇒ <code>*</code></dt>
 <dd><p>如果第二个参数不是null或者undefined或者NAN，则返回第第二个参数，否者返回第一个参数（默认值）;</p>
 </dd>
 <dt><a href="#divide">divide</a> ⇒ <code>Number</code></dt>
@@ -96,7 +96,6 @@
 
 ## clone ⇒ <code>object</code>
 
-
 深拷贝一个对象，不会复制原型链上的属性
 
 **Kind**: global variable  
@@ -135,9 +134,9 @@ objects[0] === objectsClone[0]; //=> false
 | 待柯里化函数参数的个数 | <code>number</code>   |
 | 待柯里化的函数         | <code>function</code> |
 
-<a name="logic"></a>
+<a name="defaultTo"></a>
 
-## logic ⇒ <code>\*</code>
+## defaultTo ⇒ <code>\*</code>
 
 如果第二个参数不是 null 或者 undefined 或者 NAN，则返回第第二个参数，否者返回第一个参数（默认值）;
 
