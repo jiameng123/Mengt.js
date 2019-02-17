@@ -2,33 +2,24 @@ import type from '../type';
 import has from '../has';
 
 //复制对象
-export default function _clone(src, from, to, deep) {
-    function copy(value) {
-      /*   var len = from.length, idx = 0;
-        while(len--) {
-            if(value === from[idx]) return to[idx];
-        }
+export default function _clone(value, memo, deep) {
+  var copy =  function copy(copiedValue) {
+      if(memo.get(value)) return memo.get(value);
+      memo.set(value, copiedValue);
 
-        form.push(src);
-        to.push(src); */
-
-       for(var key in src) {
-           if(has(key, src)) {
-                value[key] = deep ? _clone(src[key], from, to, true) :  src[key];
-           }
+       for(var key in value) {
+            if(has(key, value)) {
+                copiedValue[key] = deep ? _clone(value[key], memo, true) :  src[key];
+            }
        }
-
-       from.pop();
-       to.pop();
-
-       return value;
+       return copiedValue;
     }
 
-    switch(type(src)){
+    switch(type(value)){
         case 'Object':  return copy({});
         case 'Array':   return copy([]);
-        case 'Date':    return new Date(src.valueOf());
-        case 'RegExp':  return _cloneRegExp(src);
-        default:        return src;
+        case 'Date':    return new Date(value.valueOf());
+        case 'RegExp':  return _cloneRegExp(value);
+        default:        return value;
     }
 }

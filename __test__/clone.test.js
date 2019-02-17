@@ -38,4 +38,26 @@ describe('深度克隆对象', function() {
         expect(clone).toEqual({a: {b: {c: 'Meng'}}});
     });
 
+    it('clone循环引用对象', function() {
+        var x = {c: null};
+        var y = {a: x};
+        var z = {b: y};
+        x.c = z;
+        var clone = M.clone(x);
+        expect(x).toEqual(clone);
+        expect(x.c).toEqual(clone.c);
+        expect(x.c.b).toEqual(clone.c.b);
+        expect(x.c.b.a).toEqual(clone.c.b.a);
+        expect(x.c.b.a.c).toEqual( clone.c.b.a.c);
+        expect(M.keys(clone)).toEqual( M.keys(x));
+        expect(M.keys(clone.c)).toEqual( M.keys(x.c));
+        expect(M.keys(clone.c.b)).toEqual(M.keys(x.c.b));
+        expect(M.keys(clone.c.b.a)).toEqual(M.keys(x.c.b.a));
+        expect(M.keys(clone.c.b.a.c)).toEqual( M.keys(x.c.b.a.c));
+
+        x.c.b = 1;
+        console.log(clone.c.b)
+        expect(clone.c.b).not.toEqual(x.c.b); 
+    })
+
 })

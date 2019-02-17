@@ -112,6 +112,7 @@ describe('isEquals test block', function () {
        expect(M.isEquals(new Map([]), new Map([]))).toBeTruthy();
        expect(M.isEquals(new Map([]), new Map([[1, 2]]))).toBeFalsy();
        expect(M.isEquals(new Map([[1, 2]]), new Map([[1, 2]]))).toBeTruthy();
+       expect(M.isEquals(new Map([[[[[{da:111}]], 111], ['bbb', 222]]]), new Map([[[[[{da:111}]], 111], ['bbb', 222]]]))).toBeTruthy();
        expect(M.isEquals(new Map([[1, 3]]), new Map([[1, 2]]))).toBeFalsy();
        expect(M.isEquals(new Map([[1, 'a'], [2, 'b']]), new Map([[2, 'b'], [1, 'a']]))).toBeTruthy(); 
        expect(M.isEquals(new Map([[1, 'a']]), new Map([[2, 'a']]))).toBeFalsy();
@@ -119,7 +120,7 @@ describe('isEquals test block', function () {
        expect(M.isEquals(new Map([[1, 'a'], [2, new Map([[3, 'c']])]]), new Map([[1, 'a'], [2, new Map([[3, 'c']])]]))).toBeTruthy();
        expect(M.isEquals(new Map([[1, 'a'], [2, new Map([[3, 'c']])]]), new Map([[1, 'a'], [2, new Map([[3, 'd']])]]))).toBeFalsy();
        expect(M.isEquals(new Map([[[1, 2, 3], [4, 5, 6]]]), new Map([[[1, 2, 3], [4, 5, 6]]]))).toBeTruthy();
-       expect(M.isEquals(new Map([[[1, 2, 3], [4, 5, 6]]]), new Map([[[1, 2, 3], [7, 8, 9]]]))).toBeFalsy();
+       expect(M.isEquals(new Map([[[1, 2, 3,], [4, 5, 6]]]), new Map([[[1, 2, 3], [7, 8, 9]]]))).toBeFalsy();
 
    });
 
@@ -131,7 +132,12 @@ describe('isEquals test block', function () {
         a.set(b, b);
         b.set(b, b);
         b.set(a, a);
-        expect(M.isEquals(a, b)).toBeTruthy();
+        a.set({a:111111}, 'ccc')
+        a.set({a:222222}, 'ccc')
+       
+        expect(M.isEquals(a, b)).toBeFalsy();
+       
+       
    });
 
    it('按值比较Set对象', function() {
