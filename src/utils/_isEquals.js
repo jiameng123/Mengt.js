@@ -14,7 +14,6 @@ function _uniqContentEquals(a, b, aStack, bStack) {
             result =  _isEquals(v, iterB.get(k), aStack, bStack);
         } else {
             return result = false;
-            
         }
     }
     return result;

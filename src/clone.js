@@ -16,7 +16,9 @@ import  _curry1 from './utils/_curry1';
  *      objects[0] === objectsClone[0]; //=> false
  */
 var clone = _curry1(function(obj) {
-    return _clone(obj, [], [], true)
+    return obj != null && typeof obj.clone === 'function' ?
+    obj.clone() :
+    _clone(obj, new WeakMap(), true);
 });
 
 export default clone;
