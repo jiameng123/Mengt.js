@@ -10,7 +10,7 @@
     "dev": "rollup -c -w",
     "pretest": "npm run build",
     "test": "jest",
-    "docs": "jsdoc2md src/*.js > api.md",
+    "docs": "jsdoc2md src/*.js > README.md",
     "test:c": "jest --coverage",
     "debugger": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --no-watchman"
   },
