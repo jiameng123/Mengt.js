@@ -5,7 +5,7 @@ import _curry2 from './utils/_curry2';
  * 两个数相乘 a * b
  * @func
  * @member M
- * @lends Math
+ * @member Math
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}

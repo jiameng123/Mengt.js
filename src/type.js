@@ -5,7 +5,7 @@ import _curry1 from './utils/_curry1';
  * 检测数据类型
  * @func
  * @member M
- * @lends Type
+ * @member Type
  * @param {*} x
  * @returns {String}
  * @example

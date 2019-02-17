@@ -5,7 +5,7 @@ import _curry2  from './utils/_curry2';
  * @func add
  * @kind M
  * @inner
- * @namespace   Math
+ * @member Math
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}
