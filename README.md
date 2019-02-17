@@ -2,7 +2,7 @@
 
 <dl>
 <dt><a href="#clone">clone</a> ⇒ <code>object</code></dt>
-<dd><p>潜复制一个对象或者数组，不会复制原型链上的属性,</p>
+<dd><p>深拷贝一个对象，不会复制原型链上的属性,</p>
 </dd>
 <dt><a href="#curry">curry</a> ⇒ <code>function</code></dt>
 <dd><p>柯里化未知参数个数的函数</p>
