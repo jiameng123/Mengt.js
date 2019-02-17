@@ -1,11 +1,11 @@
 import _curry2  from './utils/_curry2';
 
-/**  @namespace M */
 /**
  * 两个值相加
  * @func add
- * @memberOf M
+ * @kind M
  * @inner
+ * @namespace   Math
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}

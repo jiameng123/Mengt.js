@@ -1,7 +1,9 @@
-### M~add(a, b) ⇒ <code>Number</code>
+<a name="Math"></a>
+
+## ~Math ⇒ <code>Number</code>
 两个值相加
 
-**Kind**: inner method of [<code>M</code>](#M)  
+**Kind**: inner namespace  
 
 | Param | Type |
 | --- | --- |
@@ -10,7 +12,7 @@
 
 **Example**  
 ```js
-    M.add(1,2) //=>3
-    M.add('1', '2') //=>3
-    M.add(1)(2) //=>3
+M.add(1,2) //=>3
+     M.add('1', '2') //=>3
+     M.add(1)(2) //=>3
 ```
