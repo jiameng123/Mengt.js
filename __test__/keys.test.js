@@ -13,8 +13,16 @@ describe('keys test block', function () {
 
     it('测试undefined,NaN,Number,String,Boolean', function () {
         var testData = [null, undefined, 55, '', true, false, NaN, Infinity, , []];
-        var result = testData.map(v => M.keys(v));
-        expect(result).toEqual([...new Array(10)].map(v => []))
+        var result = M.map((v, i) => M.keys(v), testData);
+        expect(result).toEqual([...new Array(10)].map(v => [])) 
+    });
+
+    it('不包括对象原型上的属性', function() {
+        function C() { this.a = 100; this.b = 200; }
+        C.prototype.x = function() { return 'x'; };
+        C.prototype.y = 'y';
+        var cobj = new C();
+        expect(M.keys(cobj)).toEqual(['a', 'b']);
     })
 
 })

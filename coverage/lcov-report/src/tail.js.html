@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/pipe.js</title>
+    <title>Code coverage report for src/tail.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> pipe.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> tail.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
     <p class="quiet">
@@ -63,7 +63,13 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -75,29 +81,41 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {  _pipe, _arity, _tail } from './utils';
-import reduce from './reduce';
-/**
- * 管道方法 从左到右执行函数
- * @see compose
- * @func
- * @param [function] f1,f2,..
- * @example 
- * 		pipe(f1, f2, f3)({x:1,y:2})
- * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)
- */
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry1 } from './utils';
+import slice from './slice';
 &nbsp;
-const pipe  = function () {
-    var fns = [].slice.call(arguments);
-    return _arity(fns.length, reduce(_pipe, _tail(fns), fns[0]));
-   
-}
-export default pipe;</pre></td></tr>
+/**
+ *
+ * 删除列表中的首个元素
+ * @func tail
+ * @param {*} list 
+ * @returns {*}
+ * @example
+ *  const list = [1, 2, 3];
+ *  tail(list) //=&gt;[2,3];
+ *  tail([1, 2]) //=&gt;[2]
+ *  tail([1]) //=&gt;[]
+ *  tail([]) //=&gt; []
+ *  tail('abc') //=&gt;'bc'
+ *  tail('a') //=&gt; ''
+ *  tail('') //=&gt; ''
+ */
+var tail = _curry1(function(list) {
+    return slice(1, list.length, list)
+});
+&nbsp;
+export default tail;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

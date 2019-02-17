@@ -1,5 +1,4 @@
 import { _curry1, _isFunction } from './utils';
-import type from './type';
 
 /**
  * 
@@ -12,16 +11,10 @@ import type from './type';
  *  keys({a: 1, b: 2, c: 3}); //=> ['a', 'b', 'c']
  */
 var keys = _curry1(function(obj) {
+    if(!obj) return [];
+    if(Object(obj) !==  obj) return [];
 
-    switch(type(obj)) {
-        case 'Null': 
-        case 'Undefined': 
-        return [];
-        default:
-        break;
-    }
-
-    if(_isFunction(obj.keys)) return obj.keys();
+    if(_isFunction(Object.keys)) return Object.keys(obj);
 
     var result = [];
     for(var key in obj ) {

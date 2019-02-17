@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/pipe.js</title>
+    <title>Code coverage report for src/slice.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> pipe.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> slice.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
     <p class="quiet">
@@ -63,7 +63,12 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -75,29 +80,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {  _pipe, _arity, _tail } from './utils';
-import reduce from './reduce';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry3, _checkMethod } from './utils';
 /**
- * 管道方法 从左到右执行函数
- * @see compose
+ * 
+ * 返回给定列表或字符串的元素，从from开始到to-1;如果传入的对象有slice方法，则直接调用该方法
  * @func
- * @param [function] f1,f2,..
+ * @param {Number} from 起始位置
+ * @param {Number} to 结束位置
+ * @param {Array | string}} list 列表或字符串
+ * @returns {Array | string}}
  * @example 
- * 		pipe(f1, f2, f3)({x:1,y:2})
- * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)
+ *     slice(1, 2, [a, b, c, d]) //=&gt; [b]
+ *     slice(1, Infinity, [a, b, c, d, e]) //=&gt; [b, c, d, e]
+ *     slice(0, -1, ['a', 'b', 'c', 'd']) //=&gt; [a, b, c]
+ *     slice(-1, -3, [a, b, c, d]) //=&gt; [b ,c]
+ *     slice(1,2, 'abc') //=&gt; 'a'
  */
+var slice = _curry3(_checkMethod('slice', function slice(from, to, list) {
+    return Array.prototype.slice.call(list, from, to);
+}));
 &nbsp;
-const pipe  = function () {
-    var fns = [].slice.call(arguments);
-    return _arity(fns.length, reduce(_pipe, _tail(fns), fns[0]));
-   
-}
-export default pipe;</pre></td></tr>
+export default slice;
+&nbsp;
+&nbsp;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

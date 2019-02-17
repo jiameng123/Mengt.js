@@ -29,8 +29,11 @@ describe('pipe test', function() {
         const f8 = jest.fn();
         const f9 = jest.fn();
         const f10 = jest.fn();
-        const rs1 = pipe(f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10);
-        expect(rs1).toThrow('First argument to _arity must be a non-negative integer no greater than ten');
+        
+        function errorFn () {
+            return  pipe(f0,f1,f2,f3,f4,f5,f6,f7,f8,f9,f10);
+        }
+        expect(errorFn).toThrow('First argument to _arity must be a non-negative integer no greater than ten');
     })
     
     it('pipe return true', function() {

@@ -13,7 +13,8 @@ var curryN =  _curry2(function curryN(length, fn) {
     if(length === 1) {
         return _curry1(fn);
     } else {
-        return _arity(length, _curryN(fn));
+        return _curryN(_arity(length, fn));
+
     }
 });
 

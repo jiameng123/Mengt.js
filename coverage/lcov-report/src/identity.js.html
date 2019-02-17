@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/pipe.js</title>
+    <title>Code coverage report for src/identity.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> pipe.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> identity.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>2/2</span>
       </div>
     </div>
     <p class="quiet">
@@ -63,7 +63,8 @@
 <a name='L15'></a><a href='#L15'>15</a>
 <a name='L16'></a><a href='#L16'>16</a>
 <a name='L17'></a><a href='#L17'>17</a>
-<a name='L18'></a><a href='#L18'>18</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -75,29 +76,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import {  _pipe, _arity, _tail } from './utils';
-import reduce from './reduce';
+<span class="cline-any cline-yes">18x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry1 } from './utils';
+&nbsp;
 /**
- * 管道方法 从左到右执行函数
- * @see compose
- * @func
- * @param [function] f1,f2,..
- * @example 
- * 		pipe(f1, f2, f3)({x:1,y:2})
- * 		pipe(f1)(f2)(f3)({x:1,y:2}, 8, 10)
+ * 
+ * 作为默认值或占位符功能，永远返回传入的参数
+ * @func identity 
+ * @category Function
+ * @param {*} x 返回的value
+ * @return {*} 返回输入值'x'
+ * @example
+ *     identity(1) == 1
+ *     identity({a:1}) //=&gt; {a:1}
  */
 &nbsp;
-const pipe  = function () {
-    var fns = [].slice.call(arguments);
-    return _arity(fns.length, reduce(_pipe, _tail(fns), fns[0]));
-   
-}
-export default pipe;</pre></td></tr>
+var identity = _curry1(function(x) {
+    return x;
+});
+&nbsp;
+export default identity;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

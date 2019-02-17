@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for src/omit.js</title>
+    <title>Code coverage report for src/map.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -16,28 +16,28 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="../index.html">All files</a> / <a href="index.html">src</a> omit.js
+      <a href="../index.html">All files</a> / <a href="index.html">src</a> map.js
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>12/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/4</span>
+        <span class='fraction'>8/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>1/1</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>10/10</span>
+        <span class='fraction'>9/9</span>
       </div>
     </div>
     <p class="quiet">
@@ -80,7 +80,14 @@
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -94,61 +101,57 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">18x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _curry2 } from './utils';
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { _map, _curry2, _checkMethod } from './utils';
+import  curryN  from './curryN';
+import type from './type';
+import reuduce from './reduce';
+import keys from './keys';
 &nbsp;
 /**
- * 去除对象中的属性
- * @param {Array} names 是一个obj中的keys数组
- * @param {object} obj 将要去除属性的源对象
- * @returns {object} 去除属性后的一个新的对象
- * @example 
  * 
- *      _M.omit(['a', 'b'], {a:1, b:2,c:3}); // { c:3}
- *      _M.omit(['a','b'])({a:1, b:2, c:3}) //{c:3}
+ * 为Array和Object实现了map方法，如果第二个参数有自身的map方法，则使用自身的map方法，如果第二个参数传入的是函数类型。map会将他们组合起来相当于compose
+ * @func
+ * @category List
+ * @param {Function}  fn 遍历list每次执行的函数
+ * @param {List|Function} list
+ * @return {Array} The new list.
+ * @example
+ *  var double = x =&gt; x * 2;
+ *  map(double, [1,2,3]) //=&gt; [2,4,6];
+ *  map(double, {a:1, b:2, c:3}) //=&gt; {a:2, b:4, c:6};
  */
+var map = _curry2(function(fn, list) {
+    if(list == null) throw new TypeError(" this is null or not defined");
 &nbsp;
-const omit = _curry2(function(names, obj) {
-    const result = {};
-    <span class="missing-if-branch" title="if path not taken" >I</span>if(obj == null ) <span class="cstat-no" title="statement not covered" >return result;</span>
-    
-    const help = {};
-    
-    for(let i = 0; i &lt; names.length; i++) {
-        help[names[i]] = i;
-    }
+    var types = type(list);
+    if(types === 'Function') return curryN(list.length, function() {
+        return fn.call(this, list.apply(this, arguments))
+    });
 &nbsp;
-    for(var prop in obj ) {
-        if(!help.hasOwnProperty(prop)) {
-            result[prop] = obj[prop];
-        }
-    }
+    if( types === 'Object' &amp;&amp; type(list.map) !== 'Function')  return reuduce(function(acc, key) {
+        acc[key] = fn(list[key]);
+        return acc;
+    },keys(list), {});
 &nbsp;
-    return result;
+    return _checkMethod('map', _map)(fn, list);
 });
 &nbsp;
-export default omit;
-&nbsp;
-&nbsp;</pre></td></tr>
+export default map;</pre></td></tr>
 </table></pre>
 <div class='push'></div><!-- for sticky footer -->
 </div><!-- /wrapper -->

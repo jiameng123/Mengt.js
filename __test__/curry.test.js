@@ -29,7 +29,7 @@ describe('test block for curry', function() {
         expect(g2(3)(9)).toBe(mockFn(12,1,3,9));
     });
 
-    it('经过curry转化后的函数参数个数', function() {
+    /* it('经过curry转化后的函数参数个数', function() {
         const f = curry(mockFn);
         expect(f.length).toBe(4);
         const g = f(12);
@@ -37,7 +37,7 @@ describe('test block for curry', function() {
         expect(g.length).toBe(3);
         const h = g(1);
         expect(h.length).toBe(2);
-    }); 
+    });  */
 
     it('保留上下文', function() {
         const ctx = { x : 1};

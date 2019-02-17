@@ -21,6 +21,9 @@ describe('test block for reverse', function() {
 
     it('Expect string type or array type', function() {
         const a = {a:111};
-        expect(revers(a)).toThrowError(new Error('Expect string type or array type'))
+        var errorFn = function () {
+            return revers(a);
+        }
+        expect(errorFn).toThrowError('Expect string type or array type')
     })
 })

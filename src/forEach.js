@@ -1,4 +1,5 @@
-import { _curry2 , _forEach } from './utils';
+import { _curry2 , _checkMethod } from './utils';
+import has from './has';
 
 /**
  * 循坏遍历数组或类数组对象
@@ -9,7 +10,15 @@ import { _curry2 , _forEach } from './utils';
  * @returns {list}
  */
 
- const forEach = _curry2(_forEach);
+ const forEach = _curry2(_checkMethod('forEach', function(fn, list) {
+    var len = list.length;
+    var idx = 0;
+    while(idx < len) {
+        fn(list[idx]);
+        idx++;
+    }
+    return list;
+ }));
 
 export default forEach;
 
