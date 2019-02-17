@@ -3,8 +3,8 @@ import _curry2  from './utils/_curry2';
 /**
  * 如果对象自身含有指定的属性，则返回 true；否则返回 false。
  * @func
- * @member M
- * @member Object
+ * 
+ * @member {Object}
  * @param {String} key  要检查属性的key
  * @oarma {Obejct} obj 要查询的对象
  * @returns {Boolean} 该属性是否存在

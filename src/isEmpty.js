@@ -7,8 +7,8 @@ import has from './has';
  * 
  * 检测给定值是否为其所属类型的空值，若是则返回 true ；否则返回 false 。
  * @func
- * @member M
- * @member Logic
+ * 
+ * @member {Logic}
  * @param {*} obj 
  * @returns {Boolean}
  * @example 

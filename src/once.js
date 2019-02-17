@@ -3,8 +3,8 @@ import _arity from './utils/_arity';
 /**
  * 接受一个函数，返回一个包装函数，使得接受的函数无论调用多少次，只返回第一次调用的结果
  * @func
- * @member M
- * @member Function
+ * 
+ * @member {Function}
  * @param {Function} func
  * @returns {Function} 返回一个包装函数
  * @@example

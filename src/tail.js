@@ -5,8 +5,8 @@ import slice from './slice';
  *
  * 删除列表中的首个元素
  * @func tail
- * @member M
- * @member List
+ * 
+ * @member {List}
  * @param {*} list 
  * @returns {*}
  * @example

@@ -3,8 +3,8 @@ import _curry2  from './utils/_curry2';
 /**
  * 两个数相除 a / b
  * @func
- * @member M
- * @member Math
+ * 
+ * @member {Math}
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}

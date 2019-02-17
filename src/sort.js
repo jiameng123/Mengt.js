@@ -4,8 +4,8 @@ import _curry2 from './utils/_curry2';
  * 
  * 根据传入的比较器函数进行列表排序
  * @func 
- * @member M
- * @member Relation 
+ * 
+ * @member {Relation} 
  * @param {Function} comparator 排序函数
  * @param {Array} list 待排序的列表
  * @return {Array} 排序后的新的列表

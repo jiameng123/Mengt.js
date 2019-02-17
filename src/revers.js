@@ -4,8 +4,8 @@ import _checkMethod from './utils/_checkMethod';
 /**
  * 以相反的顺序返回包含元素或字符新列表或字符串
  * @func
- * @member M
- * @member List
+ * 
+ * @member {List}
  * @param {list} list
  * @returns {list} 
  * @example

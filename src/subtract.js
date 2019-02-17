@@ -2,8 +2,8 @@ import _curry2 from './utils/_curry2';
 /**
  * 两个值相减
  * @func subtract
- * @member M
- * @member Math
+ * 
+ * @member {Math}
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}

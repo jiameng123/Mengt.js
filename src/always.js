@@ -5,7 +5,7 @@ import _curry1  from './utils/_curry1';
  * @func
  * @memberof M
  * @inner
- * @member Function
+ * @member {Function}
  * @param {*} val 
  * @returns {Function} function:: * -> val
  * @example

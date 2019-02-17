@@ -5,8 +5,8 @@ import reduce from './reduce';
 /**
  * 管道方法 从左到右执行函数
  * @func
- * @member M
- * @member Function
+ * 
+ * @member {Function}
  * @param {...Function} functions
  * @returns {*}
  * @tutorial compose

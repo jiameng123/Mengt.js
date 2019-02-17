@@ -3,8 +3,8 @@ import _isEquals from './utils/_isEquals';
 /**
  * 如果传入的参数相等，返回true，否则返回false
  * @func
- * @member M
- * @member Relation
+ * 
+ * @member {Relation}
  * @param {*} a 
  * @param {*} b
  * @return {Boolean}
