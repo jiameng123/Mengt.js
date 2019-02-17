@@ -1,6 +1,7 @@
+import keys from '../keys';
+import has from '../has';
 
 //内部工具方法
-
 export function _isFunction (x) {
     return ~Object.prototype.toString.call(x).slice(8).indexOf('Function');
 }
@@ -44,7 +45,6 @@ export function _checkMethod(methodname,fn) {
         const obj = arguments[len-1];
        
         return (_isArray(obj) || typeof obj[methodname] !== 'function') ? fn.apply(this, arguments) : obj[methodname].apply(obj,  Array.prototype.slice.call(arguments, 0, len - 1))
-
     }
 }
 
@@ -59,7 +59,6 @@ export function _checkMethod(methodname,fn) {
 export function _curry1(fn) {
     return function f(y) {
         if(arguments.length === 0) return f;
-       
         return fn.call(this, y);
     }
     
@@ -132,8 +131,8 @@ export function _curryN(fn) {
     if(!_isFunction(fn)) {
         throw Error(fn+ ' is not a function!');
     }
-    
-    return function f() {
+   
+     return function f() {
         const args = [].slice.call(arguments);
         if(args.length < fn.length) {
             return function() {
@@ -142,7 +141,7 @@ export function _curryN(fn) {
         } else {
           return  fn.apply(this, args);
         }
-    }
+    } 
 }
 
 /**
@@ -159,42 +158,6 @@ export function _partial(fn) {
         var args2 = args.concat([].slice.call(arguments));
         return  args2.length < fn.length ?  g : fn.apply(this, args2);
     }
-}
-
-/**
- * 
- * @todo 需要增加字符串forEach
- * @param callback 一个回调函数，参数为数组的每一项，如果传入的是一个object，则callback
- * @param obj 遍历的数组项
- * @returns 返回一个新的数组或者object;
- */
-
-export function _forEach(callback, obj) {
-
-    if(!_isArray(obj) && !_isObject(obj) ) return obj;
-    
-    if(_isArray(obj)) {
-         _checkMethod('forEach', function forEach(callback, obj) {
-           
-            for(let i = 0; i < obj.length; i++) {
-                callback(obj[i], i);
-            }
-            return obj
-        
-        })(callback, obj)
-    }
-
-    if(_isObject(obj)) { 
-        for(let key in obj) {
-            if(obj.hasOwnProperty(key)) {
-                callback(key, obj[key]);
-            }
-        }
-
-    }
-
-    return obj;
-
 }
 
 /**
@@ -220,7 +183,7 @@ export function _arity (n, fn) {
         case 2:
         return function(a0, a1) { return fn.apply(this, arguments)};
         case 3:
-        return function(a0,a1, a2) { return fn.apply(this, arguments)};
+        return function(a0, a1, a2) { return fn.apply(this, arguments)};
         case 4:
         return function(a0, a1, a2, a3) { return fn.apply(this, arguments)};
         case 5:
@@ -267,6 +230,162 @@ export function _initial(arr) {
         return result;
     })();
 }
+
+
+/**
+ *
+ * polyfill Obeject.is
+ * @func
+ * @param {*} a
+ * @param {*} b
+ * @returns {Boolean}
+ */
+export  function _ObjectIs(a, b) {
+    if(!_isFunction(Object.is)) {
+        function  _objIs(a, b) {
+            if(a === b) {
+                return a !== 0 || 1 / a === 1 / y
+            } else {
+                return x !== x && y !== y;
+            }
+        }
+        return _objIs(a, b);
+    } else {
+        return Object.is(a, b)
+    }
+}
+
+//将iterable转换成Map;
+export function _getIteratorValue(iterable) {
+    var next;
+    var list =new Map();
+    while(!(next = iterable.next()).done) {
+        list.set(JSON.stringify(next.value[0]), next.value[1])
+    }
+    return list;
+};
+
+//比较可迭代对象
+export function _uniqContentEquals(a, b, aStack, bStack) {
+    let  listA = _getIteratorValue(a),
+         listB = _getIteratorValue(b);
+  
+    var result = false;
+    for(var [k , v] of listA) {
+        if(listB.has(k)) {
+            result = _isEquals(v, listB.get(k), aStack, bStack);
+        } 
+    }
+    return result;
+}
+
+//比较两个对象是否相等
+export function _isEquals(a, b, aStack, bStack) {
+    
+    if(_ObjectIs(a, b)) {
+        return true;
+    }
+
+    if(a == null || b == null ) return a === b;
+
+    //比较传入的类型是否相等
+    var typeA = Object.prototype.toString.call(a), typeB = Object.prototype.toString.call(b);
+    if(typeA  !== typeB) return false;
+    
+    //根据类型比较
+    switch(typeA){
+        case '[object Boolean]':
+        case '[object Number]':
+        case '[object String]':
+        //通过构造函数调用和字面量创建类型不相等
+        return (typeof a === typeof b && _ObjectIs(a.valueOf(), b.valueOf())); 
+                 
+        //对于日期对象，获取其原始值进行比较
+        case '[object Date]':
+            return _ObjectIs(a.valueOf(), b.valueOf());
+
+        case '[object Error]':
+            return a.name === b.name && a.message === b.message;
+        
+        //正则表达式按照源模式和标志进行比较
+       case '[object RegExp]':
+            return (a.source === b.source && 
+                a.global == b.global && 
+                a.multiline === b.multiline && 
+                a.ignoreCase === b.ignoreCase && 
+                a.sticky === b.sticky && 
+                a.unicode === b.unicode);
+
+        default:
+            break;
+    }
+
+    if(typeof a !==  'object' || typeof b != 'object') return false;
+
+    if(keys(a).length !== keys(b).length) return false;
+    
+    //处理循环引用
+    var len = aStack.length;
+    while(len--) {
+        if(aStack[len] === a) return bStack[len] === b;
+    }
+    aStack.push(a);
+    bStack.push(b);
+
+    //处理Map 和Set 
+    switch(typeA) {
+        case '[object Map]':
+            if(a.size !== b.size) {
+                return false;
+            }
+            if(a.size === 0 ) return true;
+            return _uniqContentEquals(a.entries(), b.entries(), aStack, bStack);
+        case '[object Set]':
+            if(a.size !== b.size) {
+                return false;
+            }
+            if(a.size === 0 ) return true;
+            return _uniqContentEquals(a.entries(), b.entries(), aStack, bStack);
+        default:
+        break;
+    }
+
+    var result = true;
+    for(var key in a) {
+        if(has(key, a)) {
+            if(result) {
+                result = (has(key, b) && _isEquals(a[key], b[key], aStack, bStack));
+            }  
+        }
+        
+    }
+
+    aStack.pop(a);
+    bStack.pop(b);
+
+    return result;
+    
+}
+
+/**
+ * 
+ * 自定义Map方法
+ * @param {Function} fn 
+ * @param {*} list 
+ */
+export function _map(fn, list) {
+    var len = list.length;
+    var idx = 0;
+    var result = new Array(len);
+    while(idx < result.length) {
+        result[idx] = fn(list[idx])
+        idx ++;
+    }
+    return result;
+}
+
+
+
 
 /* export function _indexOf(list, val, fromIndex) {
     fromIndex ?

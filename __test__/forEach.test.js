@@ -21,17 +21,6 @@ describe(newLocal, function() {
 	
     }); 
 
-	it('测试对象调用forEach', function() {
-		const obj = {a:1,b: 2};
-
-		const obj2 = forEach(function(x, y) {
-			obj[x] = 2;
-
-		}, obj)
-
-		expect(obj).toEqual( {a:2, b:2});
-	})
-
     it('测试科里化调用forEach', function() {
 		let  sideEffect = 0;
     	forEach((ele) => {
@@ -47,6 +36,13 @@ describe(newLocal, function() {
 
 		expect(callBack.mock.calls.length).toBe(3);
 		expect(callBack.mock.calls[0][0]).toBe(0);
-	})
+	});
+
+	it('返回原列表', function() {
+		var list = [{x: 1, y: 2}, {x: 100, y: 200}, {x: 300, y: 400}, {x: 234, y: 345}];
+		var s = '';
+		expect(forEach(function(obj) { s += obj.x; }, list)).toEqual(list);
+		
+	});
 
 })
