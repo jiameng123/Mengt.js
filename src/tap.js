@@ -1,4 +1,4 @@
-import { _curry2 } from './utils';
+import _curry2 from './utils/_curry2';
 /**
  *
  *  使用提供的参数运行给定的函数，总是返回该参数，通常在链式调用或者compose | pipe 函数中调试

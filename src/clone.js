@@ -1,6 +1,5 @@
-import { _checkMethod } from './utils';
-import forEach from './forEach';
-
+import  _clone from './utils/_clone';
+import  _curry1 from './utils/_curry1';
 
 /**
  * 
@@ -8,12 +7,8 @@ import forEach from './forEach';
  * @param {object} obj 
  * @returns object 
  */
-export default function _clone(obj) {
-    if(obj == null) return {};
-    if(_isArray(obj)) {
-        return _checkMethod('concat', function() {
-            
-        })
-    }
-    
-}
+var clone = _curry1(function(obj) {
+    return _clone(obj, [], [], true)
+});
+
+export default clone;

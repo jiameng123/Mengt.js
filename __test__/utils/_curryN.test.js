@@ -1,4 +1,4 @@
-import { _curryN } from '../src/utils';
+import _curryN from '../../src/utils/_curryN';
 
 describe('_curryN test', function() {
     it('测试多参数函数', function() {

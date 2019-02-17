@@ -1,5 +1,4 @@
-import { _curry2 } from './utils';
-
+import _curry2  from './utils/_curry2';
 /**
  * 两个值相加
  * @func add

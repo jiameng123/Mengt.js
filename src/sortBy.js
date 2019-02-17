@@ -1,4 +1,4 @@
-import { _curry2 } from './utils';
+import _curry2 from './utils/_curry2';
 
 /**
  * 
@@ -6,6 +6,7 @@ import { _curry2 } from './utils';
  * @param {Function} fn
  * @param {Array} list 待排序的列表
  * @return {Array} 排序后的新的列表
+ * @see sort
  * @example 
  *  const diff = (x) => x.age;
  *  sort(diff, [{age: 3}, {age:8}, {age:1}]) //=> [{age:1}, {age:3}, {age:8}]

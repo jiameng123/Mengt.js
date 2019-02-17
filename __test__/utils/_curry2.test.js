@@ -1,4 +1,4 @@
-import { _curry2 } from '../src/utils'
+import _curry2 from '../../src/utils/_curry2';
 
 describe('test _curry2', () => {
     const ad = (x, y) => {

@@ -1,4 +1,4 @@
-import { _isFunction } from '../src/utils';
+import _isFunction from '../../src/utils/_isFunction';
 
 describe('isFunction test block', function(){
     it('测试generator箭头函数及函数声明' , function() {

@@ -1,5 +1,7 @@
-import { _curry2, _arity, _curry1, _curryN } from './utils';
-
+import _curry2  from './utils/_curry2';
+import _arity  from './utils/_arity';
+import _curry1  from './utils/_curry1';
+import _curryN  from './utils/_curryN';
 /**
  * 
  * 对函数进行柯里化，并限制柯里化函数的元数
