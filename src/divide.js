@@ -3,12 +3,12 @@ import _curry2  from './utils/_curry2';
 /**
  * 两个数相除 a / b
  * @func
- * @memberOf M
+ * @member M
  * @lends Math
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}
- * @see multiply
+ * @tutorial multiply
  * @example
  * 
  *      ivide(10, 100) //=> 0.1

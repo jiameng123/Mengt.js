@@ -3,9 +3,10 @@ import _curry1  from './utils/_curry1';
 import slice from './slice';
 
 /**
+ * 
  * 求列表或字符串的首个元素
  * @func head 
- * @memberOf M
+ * @member M
  * @lends List
  * @param {*} list 数组或者字符串
  * @return {*} 

@@ -4,7 +4,7 @@ import _isFunction from './utils/_isFunction';
  * 
  * 返回一个组数，包含输入对象所有的key的数组，顺序可能不一致，不会提取原型上的key
  * @func
- * @memberOf M
+ * @member M
  * @lends Object
  * @param {Object} obj 要提取key的对象
  * @returns {Array} 包含obj所有key的数组

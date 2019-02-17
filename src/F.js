@@ -1,7 +1,7 @@
 /**
  * 无论参数是什么恒定返回false
  * @func 
- * @memberOf M
+ * @member M
  * @lends Function
  * @returns {Boolean} false
  */

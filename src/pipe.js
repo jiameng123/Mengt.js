@@ -5,11 +5,11 @@ import reduce from './reduce';
 /**
  * 管道方法 从左到右执行函数
  * @func
- * @memberOf M
+ * @member M
  * @lends Function
  * @param {...Function} functions
  * @returns {*}
- * @see compose
+ * @tutorial compose
  * @example 
  * 
  * 	    pipe(f1, f2, f3)({x:1,y:2});

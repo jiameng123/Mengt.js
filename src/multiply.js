@@ -4,12 +4,12 @@ import _curry2 from './utils/_curry2';
  * 
  * 两个数相乘 a * b
  * @func
- * @memberOf M
+ * @member M
  * @lends Math
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}
- * @see divide
+ * @tutorial divide
  * @example
  * 
  *      multiply(10, 100) //=> 1000

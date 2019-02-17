@@ -5,7 +5,7 @@ import _curryN  from './utils/_curryN';
 /**
  * 对函数进行柯里化，并限制柯里化函数的元数
  * @func curryN
- * @memberOf M
+ * @member M
  * @lends Function
  * @param {number} 待柯里化函数参数的个数
  * @param {function} 待柯里化的函数 

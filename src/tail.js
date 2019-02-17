@@ -5,7 +5,7 @@ import slice from './slice';
  *
  * 删除列表中的首个元素
  * @func tail
- * @memberOf M
+ * @member M
  * @lends List
  * @param {*} list 
  * @returns {*}

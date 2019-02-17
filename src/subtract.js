@@ -2,12 +2,12 @@ import _curry2 from './utils/_curry2';
 /**
  * 两个值相减
  * @func subtract
- * @memberOf M
+ * @member M
  * @lends Math
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}
- * @see add
+ * @tutorial add
  * @example
  *  
  *      add(1,2) //=> -1

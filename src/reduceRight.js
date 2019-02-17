@@ -4,13 +4,13 @@ import _curry3 from './utils/_curry3';
  * 
  * 对列表中每一个元素执行提供的函数（从右至左迭代），将其结果汇总为单个返回值。
  * @func
- * @memberOf M
+ * @member M
  * @lends List
  * @param {Function}  fn处理list每一项的回调
  * @param {Array} list 数组
  * @param {*} init 首次执行的初始值
  * @returns {*} 累加值
- * @see reduce
+ * @tutorial reduce
  */
 const reduceRight = _curry3(function(fn, list, init) {
     let acc, idx;

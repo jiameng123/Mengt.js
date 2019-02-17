@@ -4,7 +4,7 @@ import _curry3 from './utils/_curry3';
  * 
  * 返回给定列表或字符串的元素，从from开始到to-1;如果传入的对象有slice方法，则直接调用该方法
  * @func
- * @memberOf M
+ * @member M
  * @lends List
  * @param {Number} from 起始位置
  * @param {Number} to 结束位置

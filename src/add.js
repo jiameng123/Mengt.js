@@ -1,14 +1,15 @@
 import _curry2  from './utils/_curry2';
+
 /**
  * 
  * 两个值相加
  * @func add
- * @memberOf M
+ * @member M
  * @lends Math
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}
- * @see subtract
+ * @tutorial subtract
  * @example 
  * 
  *      add(1,2) //=>3
