@@ -4,7 +4,7 @@ import _curry3 from './utils/_curry3';
  * 
  * 对列表中每一个元素执行提供的函数（从右至左迭代），将其结果汇总为单个返回值。
  * @func
- * @category List
+ * @lends List
  * @param {Function}  fn处理list每一项的回调
  * @param {Array} list 数组
  * @param {*} init 首次执行的初始值

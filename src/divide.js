@@ -4,7 +4,7 @@ import _curry2  from './utils/_curry2';
  * 
  * 两个数相除 a / b
  * @func
- * @category Math
+ * @lends Math
  * @param {Number} a
  * @param {Number} b
  * @returns {Number}

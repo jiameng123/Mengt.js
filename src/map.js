@@ -10,7 +10,7 @@ import keys from './keys';
  * 
  * 为Array和Object实现了map方法，如果第二个参数有自身的map方法，则使用自身的map方法，如果第二个参数传入的是函数类型。map会将他们组合起来相当于compose
  * @func
- * @category List
+ * @lends List
  * @param {Function}  fn 遍历list每次执行的函数
  * @param {List|Function} list
  * @return {Array} The new list.

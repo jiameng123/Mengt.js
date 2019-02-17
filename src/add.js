@@ -2,7 +2,7 @@ import _curry2  from './utils/_curry2';
 /**
  * 两个值相加
  * @func add
- * @category Math
+ * @lends Math
  * @param {Number}  a
  * @param {Number} b
  * @returns {Number}

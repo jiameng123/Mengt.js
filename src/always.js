@@ -4,7 +4,7 @@ import _curry1  from './utils/_curry1';
  *
  * 返回一个函数，该函数总是返回给定值
  * @func
- * @category Function
+ * @lends Function
  * @param {*} val 
  * @returns {Function} function:: * -> val
  * @example 
