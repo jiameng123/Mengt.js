@@ -1,6 +1,6 @@
 import compose from '../src/compose';
 
-describe('测试 compose', function() {
+describe('compose', function() {
 
     it('compose test', function() {
         const a = x => x+2;

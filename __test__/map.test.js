@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('map test block', function () {
+describe('map', function () {
     it('数组执行map', function() {
         var arr = [1, 2, ,3];
         expect(M.map(M.multiply(2), arr)).toEqual([2, 4, NaN, 6]);

@@ -6,6 +6,7 @@ export { default as clone } from './clone';
 export { default as compose } from './compose';
 export { default as defaultTo } from './defaultTo';
 export { default as divide } from './divide';
+export { default as filter } from './filter';
 export { default as head } from './head';
 export { default as has } from './has';
 export { default as keys } from './keys';

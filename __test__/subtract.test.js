@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('subtract test block', function () {
+describe('subtract', function () {
     it('测试两个数字相减', function () {
         expect(M.subtract(1,2)).toBe(-1)
     });

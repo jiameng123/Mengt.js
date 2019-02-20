@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('T test block', function () {
+describe('T', function () {
     it('传入参数返回true', function() {
         expect(M.T(111)).toBeTruthy();
         expect(M.T(false)).toBeTruthy();

@@ -1,7 +1,6 @@
 import  forEach  from "../src/forEach";
 
-const newLocal = 'forEach test';
-describe(newLocal, function() {
+describe('forEach', function() {
    
     const list = [{x: 1, y: 2}, {x: 100, y: 200}, {x: 300, y: 400}, {x: 234, y: 345}];
     

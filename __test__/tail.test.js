@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('tail test block', function() {
+describe('tail', function() {
     it('数组调用tail', function() {
         expect(M.tail([1, 2, 3])).toEqual([2,3]);
         expect(M.tail([1, 2])).toEqual([2]);

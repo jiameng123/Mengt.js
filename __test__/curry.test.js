@@ -1,6 +1,6 @@
 import curry from '../src/curry';
 
-describe('test block for curry', function() {
+describe(' curry', function() {
 
     const mockFn = function(a, b, c, d) {
         return (a+b-c)*d;

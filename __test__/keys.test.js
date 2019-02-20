@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('keys test block', function () {
+describe('keys', function () {
     var obj = {a: 100, b: [1, 2, 3], c: {x: 200, y: 300}, d: 'D', e: null, f: undefined};
 
     it('返回给定对象的键数组', function () {

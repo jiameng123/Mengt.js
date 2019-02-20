@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('add test block', function () {
+describe('add', function () {
     it('测试两个数字相加', function () {
         expect(M.add(1,2)).toBe(3)
     });
