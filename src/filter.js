@@ -2,6 +2,7 @@ import _curry2 from './utils/_curry2';
 import _checkMethod from './utils/_checkMethod';
 import reduce from './reduce';
 import type from './type';
+import keys from './keys';
 
 var filter = _curry2(function(fn, list) {
     var acc;
@@ -14,11 +15,14 @@ var filter = _curry2(function(fn, list) {
             break;
     }
 
-    return reduce(function(x) {
-        var result  = fn(x);
-        if(result) return x;
-        
-    }, list, acc);
+    return reduce(function(acc, key) {
+        var result  = fn(list[key]);
+        if(result) {
+            acc[key] = list[key]
+        };
+       
+        return acc;
+    }, keys(list), acc);
 });
 
 export default filter;
