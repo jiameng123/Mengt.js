@@ -56,8 +56,10 @@ describe('深度克隆对象', function() {
         expect(M.keys(clone.c.b.a.c)).toEqual( M.keys(x.c.b.a.c));
 
         x.c.b = 1;
-        console.log(clone.c.b)
-        expect(clone.c.b).not.toEqual(x.c.b); 
+       
+        expect(clone.c.b).not.toEqual(x.c.b);
+
+       
     })
 
 })
