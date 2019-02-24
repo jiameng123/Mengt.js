@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('sort test block', function() {
+describe('sort', function() {
     const list = [3,5,2,1,0];
     it('从小到大排序列表', function() {
         const diff = (a, b) => a - b;

@@ -1,6 +1,6 @@
 import once from '../src/once';
 
-describe('test once block', function() {
+describe('once', function() {
     const mockFn = jest.fn();
 
     it('测试回调函数只调用一次', function() {

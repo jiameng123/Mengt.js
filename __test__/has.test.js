@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('has test block', function() {
+describe('has', function() {
     var fred = {name: 'Fred', age: 23};
     var anon = {age: 99};
 

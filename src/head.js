@@ -6,7 +6,6 @@ import slice from './slice';
  * 
  * 求列表或字符串的首个元素
  * @func head 
- * 
  * @member {List}
  * @param {*} list 数组或者字符串
  * @return {*} 

@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('isEquals test block', function () {
+describe('isEquals', function () {
     var a = [];
     var b = a;
     it('对象相同深度相等' , function () {

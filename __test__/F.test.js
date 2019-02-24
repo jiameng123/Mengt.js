@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('F test block', function () {
+describe('F', function () {
     it('传入参数返回false', function() {
         expect(M.F(111)).toBeFalsy();
         expect(M.F(true)).toBeFalsy();

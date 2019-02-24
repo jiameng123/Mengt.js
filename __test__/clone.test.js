@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('clone test block', function() {
+describe('clone', function() {
     it('克隆整数', function() {
         expect(M.clone(-4)).toBe(-4);
         expect(M.clone(9007199254740991)).toBe(9007199254740991);
@@ -58,8 +58,6 @@ describe('深度克隆对象', function() {
         x.c.b = 1;
        
         expect(clone.c.b).not.toEqual(x.c.b);
-
-       
     })
 
 })

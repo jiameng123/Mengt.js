@@ -1,6 +1,6 @@
 import pipe from "../src/pipe";
 
-describe('pipe test', function() {
+describe('pipe', function() {
     const f1 = x => x;
     const f2 = y => 2 + y;
     const f3 = z => z + 100;

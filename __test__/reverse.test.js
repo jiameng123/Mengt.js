@@ -1,6 +1,6 @@
 import revers from '../src/revers';
 
-describe('test block for reverse', function() {
+describe(' reverse', function() {
     it('test array for revers', function() {
         const a = [1, 2, 3];
         const b = revers(a);

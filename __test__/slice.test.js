@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('slice test block', function() {
+describe('slice', function() {
     it('数组调用', function() {
         const testArr = [1, 2, 3, 4];
         expect(M.slice(1, 0)(testArr)).toEqual([]);
