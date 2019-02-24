@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('head test block', function() {
+describe('head', function() {
     it('数组调用head', function() {
         expect(M.head([1,2,3])).toBe(1);
         expect(M.head([{a:1}])).toEqual({a:1});

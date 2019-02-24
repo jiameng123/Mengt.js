@@ -1,6 +1,6 @@
 import  _clone from './utils/_clone';
 import  _curry1 from './utils/_curry1';
-
+import _trampoline from './utils/_transpoline'
 /**
  * 
  * 深拷贝一个对象，不会复制原型链上的属性

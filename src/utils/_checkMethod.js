@@ -8,14 +8,14 @@ import  _isArray from './_isArray';
  * @param {string} methodname 方法名称 
  * @param {function} fn 模拟实现
  */
-export default function _checkMethod(methodname,fn) {
+export default function _checkMethod(methodname, fn) {
     return function() {
-        const len = arguments.length;
+        var len = arguments.length;
       
         if(len === 0) return fn();
     
-        const obj = arguments[len-1];
+        var obj = arguments[len-1];
        
-        return (_isArray(obj) || typeof obj[methodname] !== 'function') ? fn.apply(this, arguments) : obj[methodname].apply(obj,  Array.prototype.slice.call(arguments, 0, len - 1))
+        return (_isArray(obj) || typeof obj[methodname] !== 'function') ? fn.apply(this, arguments) : obj[methodname].apply(obj,  [].slice.call(arguments, 0, len))
     }
 }

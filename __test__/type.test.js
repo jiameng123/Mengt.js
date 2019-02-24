@@ -1,6 +1,6 @@
 import type from '../src/type';
 
-describe('type test block', function() {
+describe('type', function() {
 
     it('传入array类型 返回Array' , function() {
         expect(type([1,2,3])).toBe('Array')

@@ -1,6 +1,6 @@
 import defaultTo from '../src/defaultTo';
 
-describe('test block for defaultTo', function() {
+describe(' defaultTo', function() {
     var defaultTo99 = defaultTo(99);
 
     it('如果输入为null，undefined或者NaN，则返回默认值', function() {

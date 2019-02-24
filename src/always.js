@@ -3,7 +3,6 @@ import _curry1  from './utils/_curry1';
 /**
  * 返回一个函数，该函数总是返回给定值
  * @func
- * @memberof M
  * @inner
  * @member {Function}
  * @param {*} val 

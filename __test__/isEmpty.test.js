@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('isEmpty test block', function() {
+describe('isEmpty', function() {
     it('传入null 返回false', function() {
         expect(M.isEmpty(null)).toBeFalsy();
        

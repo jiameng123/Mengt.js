@@ -1,6 +1,6 @@
 var M = require('../src');
 
-describe('sortBy test block', function() {
+describe('sortBy', function() {
     it('根据对象属性排序', function() {
         var list = [ {age: 3}, {age: 8}, {age: 1}];
         var diff = x => x.age;
