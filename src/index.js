@@ -20,6 +20,7 @@ export { default as nth } from './nth';
 export { default as omit } from './omit';
 export { default as once } from './once';
 export { default as reduce } from './reduce';
+export { default as range } from './range';
 export { default as isEquals } from './isEquals';
 export { default as isEmpty } from './isEmpty';
 export { default as indexOf } from './indexOf';
