@@ -19,6 +19,7 @@ export { default as map } from './map';
 export { default as nth } from './nth';
 export { default as omit } from './omit';
 export { default as once } from './once';
+export { default as paths } from './paths';
 export { default as reduce } from './reduce';
 export { default as isEquals } from './isEquals';
 export { default as isEmpty } from './isEmpty';
