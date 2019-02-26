@@ -1,9 +1,10 @@
 import _isFunction from './_isFunction';
+import _arity from './_arity';
 /**
  * 
  * @function
  * @name _curryN
- * @todo 多参数函数柯里化
+ * @todo 多参数函数柯里化增加占位符
  * @private
  * @param {Function} 将fn转化成柯里化 
  */

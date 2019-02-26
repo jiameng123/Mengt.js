@@ -29,7 +29,7 @@ export default function _curry3(fn) {
                         return fn.call(this, a, _b, _c)
                     }) : _curry1(function (_c) {
                         return fn.call(this, a, b, _c)
-                    })
+                    });
 
             default:
                 return _isPlaceholder(a) && _isPlaceholder(b) && _isPlaceholder(c) ? f3 :
