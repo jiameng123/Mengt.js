@@ -16,6 +16,7 @@ export { default as has } from './has';
 export { default as keys } from './keys';
 export { default as multiply } from './multiply';
 export { default as map } from './map';
+export { default as _m } from './_m';
 export { default as nth } from './nth';
 export { default as omit } from './omit';
 export { default as once } from './once';
