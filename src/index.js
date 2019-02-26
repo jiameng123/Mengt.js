@@ -21,6 +21,8 @@ export { default as omit } from './omit';
 export { default as once } from './once';
 export { default as paths } from './paths';
 export { default as path } from './path';
+export { default as prop } from './prop';
+export { default as props } from './props';
 export { default as reduce } from './reduce';
 export { default as range } from './range';
 export { default as isEquals } from './isEquals';

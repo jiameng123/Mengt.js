@@ -1,6 +1,7 @@
 import _curry2 from './utils/_curry2';
 import _isInteger from './utils/_isInteger';
 import nth from './nth';
+import _isArray from './utils/_isArray';
 
 /**
  * 检索对象给定路径上的值
