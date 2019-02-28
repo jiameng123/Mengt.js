@@ -1,8 +1,11 @@
 export { default as always } from './always'; 
 export { default as add } from './add'; 
+export { default as assoc } from './assoc'; 
+export { default as call } from './call';
 export { default as curry } from './curry';
 export { default as curryN } from './curryN';
 export { default as clone } from './clone';
+export { default as concat } from './concat';
 export { default as compose } from './compose';
 export { default as defaultTo } from './defaultTo';
 export { default as divide } from './divide';
