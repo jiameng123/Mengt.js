@@ -1,5 +1,4 @@
 var M = require('../src');
-import _curryN from '../src/utils/_curryN';
 describe('curry', function() {
 
     const mockFn = function(a, b, c, d) {
