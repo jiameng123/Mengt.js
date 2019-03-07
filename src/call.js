@@ -1,3 +1,4 @@
+
 import curry from './curry';
 
 /**
@@ -16,3 +17,4 @@ var call = function call(fn) {
 };
 
 export default call;
+
