@@ -15,7 +15,7 @@ import _curry2 from './utils/_curry2';
  *      M.drop(1, 'abc') //=> 'bc'
  */
 var drop = _curry2(function(n, list) {
-    return slice(n,  n < 0 ? Infinity : n, list);
+    return slice(Math.max(0, n), Infinity, list);
 });
 
 export default drop;

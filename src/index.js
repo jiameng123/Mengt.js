@@ -52,6 +52,7 @@ export { default as slice } from './slice';
 export { default as subtract } from './subtract';
 export { default as sort } from './sort';
 export { default as sortBy } from './sortBy';
+export { default as zip } from './zip';
 export { default as T } from './T';
 export { default as F } from './F';
 
