@@ -11,13 +11,10 @@ import _curryN  from './utils/_curryN';
  * @param {function} 待柯里化的函数 
  * @returns {Function}
  */
-var curryN =  _curry2(function curryN(length, fn) {
-    if(length === 1) {
-        return _curry1(fn);
-    } else {
-        return _curryN(_arity(length, fn));
-
+var curryN = _curry2(function curryN(length, fn) {
+    if (length === 1) {
+      return _curry1(fn);
     }
-});
-
-export default curryN;
+    return _arity(length, _curryN(length, [], fn));
+  });
+  export default curryN;
