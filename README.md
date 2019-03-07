@@ -4,8 +4,18 @@
 <dt><a href="#always">always</a> ⇒ <code>function</code></dt>
 <dd><p>返回一个函数，该函数总是返回给定值</p>
 </dd>
+<dt><a href="#assoc">assoc</a> ⇒</dt>
+<dd><p>浅复制对象，然后设置或覆盖对象的指定属性。
+assoc :: String -&gt; a -&gt; {k: v} -&gt; {k: v}</p>
+</dd>
+<dt><a href="#call">call</a> ⇒ <code>*</code></dt>
+<dd><p>提取第一个参数作为函数，其余参数作为刚提取的函数的参数，调用该函数并将结果返回。</p>
+</dd>
 <dt><a href="#clone">clone</a> ⇒ <code>object</code></dt>
 <dd><p>深拷贝一个对象，不会复制原型链上的属性</p>
+</dd>
+<dt><a href="#concat">concat</a> ⇒ <code>List</code></dt>
+<dd><p>连接列表或字符串。</p>
 </dd>
 <dt><a href="#curry">curry</a> ⇒ <code>function</code></dt>
 <dd><p>柯里化未知参数个数的函数</p>
@@ -18,6 +28,10 @@
 </dd>
 <dt><a href="#divide">divide</a> ⇒ <code>Number</code></dt>
 <dd><p>两个数相除 a / b</p>
+</dd>
+<dt><a href="#drop">drop</a> ⇒ <code>Array</code></dt>
+<dd><p>删除一个列表中前几个元素
+drop :: n -&gt; [<em>] -&gt; [</em>]</p>
 </dd>
 <dt><a href="#filter">filter</a> ⇒ <code>*</code></dt>
 <dd><p>迭代列表，在每个函数上调用断言函数，返回满足断言函数的元素。返回值与传入的列表类型相同</p>
@@ -117,6 +131,10 @@ prop :: [k] -&gt; {k:v} -&gt; [v]</p>
 <dt><a href="#tail">tail</a> ⇒ <code>*</code></dt>
 <dd><p>删除列表中的首个元素</p>
 </dd>
+<dt><a href="#take">take</a> ⇒ <code>Array</code></dt>
+<dd><p>提取一个数字和一个列表作为参数，返回列表中指定的前几个元素
+take:: n -&gt; [<em>] -&gt; [</em>]</p>
+</dd>
 <dt><a href="#tap">tap</a> ⇒ <code>*</code></dt>
 <dd><p>使用提供的参数运行给定的函数，总是返回该参数，通常在链式调用或者compose | pipe 函数中调试</p>
 </dd>
@@ -125,6 +143,9 @@ prop :: [k] -&gt; {k:v} -&gt; [v]</p>
 </dd>
 <dt><a href="#Type">Type</a> ⇒ <code>String</code></dt>
 <dd><p>检测数据类型</p>
+</dd>
+<dt><a href="#zip">zip</a> ⇒ <code>Array</code></dt>
+<dd><p>生成一组序对的列表</p>
 </dd>
 </dl>
 
@@ -175,6 +196,49 @@ b("a"); //=> 'b'
 b(); //=> b
 ```
 
+<a name="assoc"></a>
+
+## assoc ⇒
+
+浅复制对象，然后设置或覆盖对象的指定属性。
+assoc :: String -> a -> {k: v} -> {k: v}
+
+**Kind**: global variable  
+**Returns**: 返回 Object 除已更改的属性外，等效于原始对象的新对象
+
+| Param        | Type                | Description      |
+| ------------ | ------------------- | ---------------- |
+| prop         | <code>String</code> | 要设置的属性名称 |
+| val          | <code>\*</code>     | 要设置属性的值   |
+| 要克隆的对象 | <code>Object</code> |                  |
+
+**Example**
+
+```js
+M.assoc("c", 3, { a: 1, b: 2 }); //=> {a: 1, b: 2, c: 3}
+```
+
+<a name="call"></a>
+
+## call ⇒ <code>\*</code>
+
+提取第一个参数作为函数，其余参数作为刚提取的函数的参数，调用该函数并将结果返回。
+
+**Kind**: global variable  
+**Todo**
+
+- [ ] 支持柯里化和部分应用
+
+| Param               | Type            |
+| ------------------- | --------------- |
+| ...第一个参数为函数 | <code>\*</code> |
+
+**Example**
+
+```js
+M.call(R.add, 1, 2); //=> 3
+```
+
 <a name="clone"></a>
 
 ## clone ⇒ <code>object</code>
@@ -195,6 +259,28 @@ const objects = [{}, {}, {}];
 const objectsClone = M.clone(objects);
 objects === objectsClone; //=> false
 objects[0] === objectsClone[0]; //=> false
+```
+
+<a name="concat"></a>
+
+## concat ⇒ <code>List</code>
+
+连接列表或字符串。
+
+**Kind**: global variable  
+**Returns**: <code>List</code> - 返回一个有 a 和 b 组成的新的列表
+
+| Param | Type              | Description |
+| ----- | ----------------- | ----------- |
+| a     | <code>List</code> | 第一个列表  |
+| b     | <code>List</code> | 第二个列表  |
+
+**Example**
+
+```js
+M.concat("ABC", "DEF"); // 'ABCDEF'
+M.concat([4, 5, 6], [1, 2, 3]); //=> [4, 5, 6, 1, 2, 3]
+M.concat([], []); //=> []
 ```
 
 <a name="curry"></a>
@@ -255,6 +341,28 @@ defaultTo(1, ""); //=> ''
 ```js
 ivide(10, 100); //=> 0.1
 divide(10)(100); //=> 0.1
+```
+
+<a name="drop"></a>
+
+## drop ⇒ <code>Array</code>
+
+删除一个列表中前几个元素
+drop :: n -> [*] -> [*]
+
+**Kind**: global variable  
+**Returns**: <code>Array</code> - [*] 一个新的列表
+
+| Param | Type                | Description    |
+| ----- | ------------------- | -------------- |
+| n     | <code>Number</code> | 删除列表的个数 |
+| list  | <code>Array</code>  | 待删除的列表   |
+
+**Example**
+
+```js
+M.drop(1, [1, 2]); //=> [2]
+M.drop(1, "abc"); //=> 'bc'
 ```
 
 <a name="filter"></a>
@@ -939,6 +1047,28 @@ tail("a"); //=> ''
 tail(""); //=> ''
 ```
 
+<a name="take"></a>
+
+## take ⇒ <code>Array</code>
+
+提取一个数字和一个列表作为参数，返回列表中指定的前几个元素
+take:: n -> [*] -> [*]
+
+**Kind**: global variable  
+**Returns**: <code>Array</code> - [*] 一个新的列表
+
+| Param | Type                | Description    |
+| ----- | ------------------- | -------------- |
+| n     | <code>Number</code> | 提取列表的个数 |
+| list  | <code>Array</code>  | 待提取的列表   |
+
+**Example**
+
+```js
+M.take(1, [1, 2]); //=> [1]
+M.take(1, "abc"); //=> a
+```
+
 <a name="tap"></a>
 
 ## tap ⇒ <code>\*</code>
@@ -1003,6 +1133,25 @@ type(/\.s/); //=> 'RegExp'
 type(null); //=> 'Null'
 type(undefined); //=> "Undefined"
 type(() => {}); //=> "Function"
+```
+
+<a name="zip"></a>
+
+## zip ⇒ <code>Array</code>
+
+生成一组序对的列表
+
+**Kind**: global variable
+
+| Param | Type               | Description |
+| ----- | ------------------ | ----------- |
+| list1 | <code>Array</code> | 第一个数组  |
+| list2 | <code>Array</code> | 第二个数组  |
+
+**Example**
+
+```js
+M.zip([1, 2, 3], ["a", "b", "c"]); //=> [[1, 'a'], [2, 'b'], [3, 'c']]
 ```
 
 <a name="compose"></a>
