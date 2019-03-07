@@ -1,5 +1,5 @@
-import curry from './curry';
 
+import curry from './curry';
 /**
  * 提取第一个参数作为函数，其余参数作为刚提取的函数的参数，调用该函数并将结果返回。
  * @func
@@ -16,3 +16,4 @@ var call = function call(fn) {
 };
 
 export default call;
+
