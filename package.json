@@ -14,6 +14,12 @@
     "test:c": "jest --coverage",
     "debugger": "node --inspect-brk ./node_modules/jest/bin/jest --runInBand --no-cache --no-watchman"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test",
+      "pre-push": "npm test"
+    }
+  },
   "keywords": [
     "es2015",
     "function",
@@ -35,6 +41,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.1.0",
     "babel-preset-es2015-rollup": "^3.0.0",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
     "jest-cli": "^24.1.0",
     "jsdoc-to-markdown": "^4.0.1",
@@ -63,4 +70,5 @@
       "^.+\\.jsx?$": "babel-jest"
     }
   }
+
 }
