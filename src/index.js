@@ -1,6 +1,7 @@
-export { default as always } from './always'; 
-export { default as add } from './add'; 
-export { default as assoc } from './assoc'; 
+export { default as always } from './always';
+export { default as add } from './add';
+export { default as assoc } from './assoc';
+export { default as append } from './append';
 export { default as call } from './call';
 export { default as curry } from './curry';
 export { default as curryN } from './curryN';
@@ -30,6 +31,7 @@ export { default as prop } from './prop';
 export { default as props } from './props';
 export { default as propEq } from './propEq';
 export { default as propIs } from './propIs';
+export { default as prepend } from './prepend';
 export { default as reduce } from './reduce';
 export { default as range } from './range';
 export { default as isEquals } from './isEquals';
@@ -56,5 +58,3 @@ export { default as zip } from './zip';
 export { default as zipWith } from './zipWith';
 export { default as T } from './T';
 export { default as F } from './F';
-
-
