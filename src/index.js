@@ -39,6 +39,7 @@ export { default as isEmpty } from './isEmpty';
 export { default as indexOf } from './indexOf';
 export { default as init } from './init';
 export { default as is } from './is';
+export { default as invoker } from './invoker';
 export { default as reduceRight } from './reduceRight';
 export { default as reverse } from './revers';
 export { default as pipe } from './pipe';
